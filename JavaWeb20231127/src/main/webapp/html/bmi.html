@@ -5,14 +5,14 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 		<title>BMI</title>
 	</head>
-	<body>
-		<form method="post" action="/JavaWeb20231127/servlet/bmi">
+	<body style="padding: 15px;">
+		<form method="post" action="/JavaWeb20231127/servlet/bmi" class="pure-form">
 			<fieldset>
 				<legend>BMI Input</legend>
 				身高: <input type="number" id="height" name="height" placeholder="請輸入身高" required /><p />
 				體重: <input type="number" id="weight" name="weight" placeholder="請輸入體重" required /><p />
-				<button type="reset">重設</button> 
-				<button type="submit">傳送</button>
+				<button type="reset" class="pure-button">重設</button> 
+				<button type="submit" class="pure-button pure-button-primary">傳送</button>
 			</fieldset>
 		</form>
 	</body>
