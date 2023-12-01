@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +20,10 @@ public class WelcomeServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		String now = sdf.format(new Date());
+		
 		PrintWriter out = resp.getWriter();
 		out.println("<html>");
 		out.println("<head>");
@@ -27,7 +33,7 @@ public class WelcomeServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1 class=\"my_red_color\">歡迎光臨~ Welcome !</h1>");
-		out.println("<h2>現在時間: 09:13:00</h2>");
+		out.println("<h2>現在時間: " + now + "</h2>");
 		out.println("<img src=\"../image/car.webp\">");
 		out.println("</body>");
 		out.println("</html>");
