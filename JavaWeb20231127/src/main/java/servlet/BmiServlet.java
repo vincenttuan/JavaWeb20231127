@@ -44,6 +44,7 @@ public class BmiServlet extends HttpServlet {
 		out.println("<h2>身高: " + h + "</h2>");
 		out.println("<h2>體重: " + w + "</h2>");
 		out.println("<h2>BMI: " + String.format("%.2f", bmi) + "</h2>");
+		out.println("<button type='button' onClick='history.back();' >返回</button>")
 		out.println("</body>");
 		out.println("</html>");
 		
