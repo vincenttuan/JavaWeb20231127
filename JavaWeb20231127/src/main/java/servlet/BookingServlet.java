@@ -58,7 +58,11 @@ public class BookingServlet extends HttpServlet {
 				
 				break;	
 			case "/viewBookings": // 查看預約
-				
+				if(bookings.size() > 0) {
+					bookings.forEach(booking -> out.println(booking));
+				} else {
+					out.println("None booking");
+				}
 				break;
 			default: // 其他
 				resp.sendError(500, "別鬧了~");
