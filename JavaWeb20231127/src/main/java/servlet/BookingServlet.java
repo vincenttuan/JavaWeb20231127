@@ -42,6 +42,14 @@ public class BookingServlet extends HttpServlet {
 				String name = req.getParameter("name");
 				String date = req.getParameter("date");
 				
+				boolean isBooked = bookings.stream()
+						   .anyMatch(b -> b.get("roomId").equals(roomId) && b.get("date").equals(date));
+				
+				if(isBooked) {
+					out.println(String.format("%s 於 %s 已被預訂", roomId, date));
+					return;
+				}
+				
 				Map<String, Object> bookRoom = new LinkedHashMap<>();
 				int bookingId = bookingIdCount.incrementAndGet();
 				bookRoom.put("bookingId", bookingId);
