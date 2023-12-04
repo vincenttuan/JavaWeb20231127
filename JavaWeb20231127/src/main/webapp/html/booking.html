@@ -8,7 +8,7 @@
 	<body style="padding: 15px;">
 		<table>
 			<tr>
-				<td>
+				<td valign="top">
 					<!-- 預約會議表單 -->
 					<form class="pure-form" method="post"
 						  target="resultFrame"  
@@ -20,16 +20,16 @@
 								  	<option value="202">202室</option>
 								  	<option value="303">303室</option>
 								  	<option value="404">404室</option>
-								  </select><br />
-							使用者: <input type="text" name="name" required /><br />
-							預約日: <input type="date" name="date" required /><br />
+								  </select><p />
+							使用者: <input type="text" name="name" required /><p />
+							預約日: <input type="date" name="date" required /><p />
 							<button type="submit" class="pure-button pure-button-primary">預約</button>
 						</fieldset>
 					</form>
 				</td>
 				<td rowspan="3">
 					<!-- 結果 iframe -->
-					<iframe name="resultFrame" width="100%" height="500px"></iframe>
+					<iframe name="resultFrame" width="500px" height="500px"></iframe>
 				</td>
 			</tr>
 			
