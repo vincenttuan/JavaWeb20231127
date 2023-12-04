@@ -15,9 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/servlet/bmi") // servlet path = "/servlet/bmi"
 public class BmiServlet extends HttpServlet {
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	private void doHandler(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 編碼設定
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
@@ -47,7 +46,16 @@ public class BmiServlet extends HttpServlet {
 		out.println("<button type='button' onClick='history.back();' >返回</button>");
 		out.println("</body>");
 		out.println("</html>");
-		
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doHandler(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doHandler(req, resp);
 	}
 	
 }
