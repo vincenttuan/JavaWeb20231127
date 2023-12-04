@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -63,6 +64,19 @@ public class BookingServlet extends HttpServlet {
 				
 				break;
 			case "/cancelBooking": // 取消預約
+				int bId = Integer.parseInt(req.getParameter("bookingId"));
+				// 是否有此預約紀錄 ?
+				Optional<Map<String, Object>> opt = bookings.stream()
+															.filter(b -> b.get("bookingId").equals(bId))
+															.findAny();
+				if(opt.isEmpty()) {
+					out.println(String.format("預約編號: %d 無此預約紀錄", bId));
+					return;
+				}
+				
+				// 將預約資料移除
+				bookings.remove(opt.get());
+				out.println(String.format("預約編號: %d 取消成功", bId));
 				
 				break;	
 			case "/viewBookings": // 查看預約
