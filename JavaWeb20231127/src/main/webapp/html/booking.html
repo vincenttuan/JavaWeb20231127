@@ -32,6 +32,33 @@
 					<iframe name="resultFrame" width="500px" height="500px"></iframe>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<!-- 取消會議表單 -->
+					<form class="pure-form" method="post"
+						  target="resultFrame"  
+						  action="/JavaWeb20231127/booking/cancelBooking">
+						<fieldset>
+							<legend>預約會議表單</legend>
+							預約單號: <input type="number" name="bookingId" required /><p />
+							<button type="submit" class="pure-button pure-button-primary">取消預約</button>
+						</fieldset>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- 查看所有預約 -->
+					<form class="pure-form" method="post"
+						  target="resultFrame"  
+						  action="/JavaWeb20231127/booking/viewBookings">
+						<fieldset>
+							<legend>查看所有預約</legend>
+							<button type="submit" class="pure-button pure-button-primary">查看預約</button>
+						</fieldset>
+					</form>
+				</td>
+			</tr>
 			
 		</table>
 	</body>
