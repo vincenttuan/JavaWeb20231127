@@ -100,7 +100,7 @@ public class BookingServlet extends HttpServlet {
 				// 是否有此預約紀錄 ?
 				Optional<Map<String, Object>> opt = bookings.stream()
 															.filter(b -> b.get("bookingId").equals(bId))
-															.findAny();
+															.findFirst();
 				if(opt.isEmpty()) {
 					out.println(String.format("預約編號: %d 無此預約紀錄", bId));
 					return;
