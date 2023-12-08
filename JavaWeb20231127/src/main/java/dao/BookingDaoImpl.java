@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -38,20 +39,20 @@ public class BookingDaoImpl implements BookingDao {
 
 	@Override
 	public int cancelBookingRoomById(Integer bookingId) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from BookingRoom where bookingId = ?";
+		return jdbcTemplate.update(sql, bookingId);
 	}
 
 	@Override
 	public List<BookingRoom> findAllBookingRooms() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select bookingId, roomId, name, date, createTime from BookingRoom order by bookingId";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(BookingRoom.class));
 	}
 
 	@Override
 	public BookingRoom getBookingRoomById(Integer bookingId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select bookingId, roomId, name, date, createTime from BookingRoom where bookingId = ?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(BookingRoom.class), bookingId);
 	}
 
 	@Override
