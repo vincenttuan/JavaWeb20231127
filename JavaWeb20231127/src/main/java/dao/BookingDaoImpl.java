@@ -14,9 +14,9 @@ public class BookingDaoImpl implements BookingDao {
 	
 	public BookingDaoImpl() {
 		String driverName = "com.mysql.cj.jdbc.Driver";
-		String dbURL = "";
-		String username = "";
-		String password = "";
+		String dbURL = "jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei";
+		String username = "root";
+		String password = "12345678";
 		
 		// 設定資料來源
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
