@@ -17,3 +17,15 @@ create table if not exists BookingRoom(
     foreign key (roomId) references Room(roomId),
     CONSTRAINT unique_roomId_and_date UNIQUE(roomId, date)
 );
+
+-- 建立預設資料
+insert into Room (roomId, name) values ('101', '101室');
+insert into Room (roomId, name) values ('202', '202室');
+insert into Room (roomId, name) values ('303', '303室');
+insert into Room (roomId, name) values ('404', '404室');
+
+insert into BookingRoom(roomId, name, date) values(101, 'John', '2023-12-08');
+insert into BookingRoom(roomId, name, date) values(101, 'Mary', '2023-12-09');
+insert into BookingRoom(roomId, name, date) values(202, 'Jack', '2023-12-10');
+
+
