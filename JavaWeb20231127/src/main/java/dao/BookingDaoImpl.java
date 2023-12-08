@@ -57,14 +57,14 @@ public class BookingDaoImpl implements BookingDao {
 
 	@Override
 	public List<Room> findAllRooms() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select roomId, name from Room order by roomId";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class));
 	}
 
 	@Override
 	public Room getRoomById(Integer roomId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select roomId, name from Room where roomId = ?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Room.class), roomId);
 	}
 
 }
