@@ -2,10 +2,32 @@ package dao;
 
 import java.util.List;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import dao.model.BookingRoom;
 import dao.model.Room;
 
 public class BookingDaoImpl implements BookingDao {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	public BookingDaoImpl() {
+		String driverName = "";
+		String dbURL = "";
+		String username = "";
+		String password = "";
+		
+		// 設定資料來源
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName(driverName);
+		dataSource.setUrl(dbURL);
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
+		
+		// 將資料來源注入給 jdbcTemplate
+		jdbcTemplate = new JdbcTemplate(dataSource);
+	}
 	
 	@Override
 	public int addBookingRoom(BookingRoom bookingRoom) {
