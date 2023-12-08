@@ -31,8 +31,9 @@ public class BookingDaoImpl implements BookingDao {
 	
 	@Override
 	public int addBookingRoom(BookingRoom bookingRoom) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "insert into BookingRoom(roomid, name, date) values(?, ?, ?)";
+		return jdbcTemplate.update(sql, 
+				bookingRoom.getRoomId(), bookingRoom.getName(), bookingRoom.getDate());
 	}
 
 	@Override
