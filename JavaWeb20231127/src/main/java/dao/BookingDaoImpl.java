@@ -13,7 +13,7 @@ public class BookingDaoImpl implements BookingDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public BookingDaoImpl() {
-		String driverName = "";
+		String driverName = "com.mysql.cj.jdbc.Driver";
 		String dbURL = "";
 		String username = "";
 		String password = "";
