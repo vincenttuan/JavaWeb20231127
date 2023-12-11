@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -92,7 +93,13 @@ public class BookingServlet extends HttpServlet {
 				bookingRoom.setName(name);
 				bookingRoom.setDate(date);
 				// 新增預約單
-				dao.addBookingRoom(bookingRoom);
+				int rowcount = dao.addBookingRoom(bookingRoom);
+				String resultMessage = rowcount == 0 ? "新增失敗" : "新增成功";
+				
+				// 傳送到指定 jsp 進行資料渲染
+				RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/bookingResult.jsp");
+				req.setAttribute("resultMessage", resultMessage);
+				rd.forward(req, resp);
 				
 				break;
 			case "/cancelBooking": // 取消預約
