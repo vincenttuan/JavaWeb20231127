@@ -116,7 +116,12 @@ public class BookingServlet extends HttpServlet {
 				
 				break;	
 			case "/viewBookings": // 查看預約
-				
+			 	// 得到所有預約資料
+				List<BookingRoom> bookingRooms = dao.findAllBookingRooms();
+				// 傳送到指定 jsp 進行資料渲染
+				RequestDispatcher rd3 = req.getRequestDispatcher("/WEB-INF/views/bookingList.jsp");
+				req.setAttribute("bookingRooms", bookingRooms);
+				rd3.forward(req, resp);
 				
 				break;
 			default: // 其他
