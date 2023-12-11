@@ -103,7 +103,16 @@ public class BookingServlet extends HttpServlet {
 				
 				break;
 			case "/cancelBooking": // 取消預約
+				// 得到表單傳來要取消的預約單編號
 				int bId = Integer.parseInt(req.getParameter("bookingId"));
+				// 取消預約單
+				int cancelRowcount = dao.cancelBookingRoomById(bId);
+				String cancelResultMessage = cancelRowcount == 0 ? "取消失敗" : "取消成功";
+				
+				// 傳送到指定 jsp 進行資料渲染
+				RequestDispatcher rd2 = req.getRequestDispatcher("/WEB-INF/views/bookingResult.jsp");
+				req.setAttribute("resultMessage", cancelResultMessage);
+				rd2.forward(req, resp);
 				
 				
 				break;	
