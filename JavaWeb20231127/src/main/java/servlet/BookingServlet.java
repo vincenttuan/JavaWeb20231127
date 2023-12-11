@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BookingDao;
+import dao.BookingDaoImpl;
+
 /**
  * 會議室預訂系統
  * 假設您正在為一家公司開發一個會議室預訂系統。您需要實現一個控制器，該控制器可以處理會議室的預訂請求、取消請求以及查詢當前預訂狀態。
@@ -50,8 +53,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(value = "/booking/*")
 public class BookingServlet extends HttpServlet {
 	
-	private static List<Map<String, Object>> bookings = new CopyOnWriteArrayList<>();
-	private AtomicInteger bookingIdCount = new AtomicInteger(0);
+	private BookingDao dao = new BookingDaoImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -79,53 +81,20 @@ public class BookingServlet extends HttpServlet {
 		
 		switch(pathInfo) {
 			case "/bookRoom": // 預約房間
-				
 				String roomId = req.getParameter("roomId");
 				String name = req.getParameter("name");
 				String date = req.getParameter("date");
 				
-				boolean isBooked = bookings.stream()
-						   .anyMatch(b -> b.get("roomId").equals(roomId) && b.get("date").equals(date));
-				
-				if(isBooked) {
-					out.println(String.format("%s 於 %s 已被預訂", roomId, date));
-					return;
-				}
-				
-				Map<String, Object> bookRoom = new LinkedHashMap<>();
-				int bookingId = bookingIdCount.incrementAndGet();
-				bookRoom.put("bookingId", bookingId);
-				bookRoom.put("roomId", roomId);
-				bookRoom.put("name", name);
-				bookRoom.put("date", date);
-				
-				bookings.add(bookRoom);
-				
-				out.print("預約成功, 預約編號: " + bookingId);
 				
 				break;
 			case "/cancelBooking": // 取消預約
 				int bId = Integer.parseInt(req.getParameter("bookingId"));
-				// 是否有此預約紀錄 ?
-				Optional<Map<String, Object>> opt = bookings.stream()
-															.filter(b -> b.get("bookingId").equals(bId))
-															.findFirst();
-				if(opt.isEmpty()) {
-					out.println(String.format("預約編號: %d 無此預約紀錄", bId));
-					return;
-				}
 				
-				// 將預約資料移除
-				bookings.remove(opt.get());
-				out.println(String.format("預約編號: %d 取消成功", bId));
 				
 				break;	
 			case "/viewBookings": // 查看預約
-				if(bookings.size() > 0) {
-					bookings.forEach(booking -> out.println(booking));
-				} else {
-					out.println("None booking");
-				}
+				
+				
 				break;
 			default: // 其他
 				resp.sendError(500, "別鬧了~");
