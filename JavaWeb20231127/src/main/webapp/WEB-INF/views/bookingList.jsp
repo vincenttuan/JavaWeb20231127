@@ -52,7 +52,7 @@
 					<tr>
 						<td nowrap>
 							<a href="javascript:void(0)" 
-							   onClick=""
+							   onClick="location.href='/JavaWeb20231127/booking/cancelBooking?bookingId=${ booking.bookingId }'"
 							   class="button-error pure-button">
 								取消
 							</a>
