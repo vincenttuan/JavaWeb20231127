@@ -12,18 +12,18 @@
 		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
-					<th>預約號碼</th><th>房間號碼</th><th>預約人</th>
-					<th>預約日期</th><th>建立時間</th>
+					<th nowrap>預約號碼</th><th nowrap>房間號碼</th><th nowrap>預約人</th>
+					<th nowrap>預約日期</th><th nowrap>建立時間</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${ bookingRooms }" var="booking">
 					<tr>
-						<td>${ booking.bookingId }</td>
-						<td>${ booking.roomId }</td>
-						<td>${ booking.name }</td>
-						<td>${ booking.date }</td>
-						<td>${ booking.createTime }</td>
+						<td nowrap>${ booking.bookingId }</td>
+						<td nowrap>${ booking.roomId }</td>
+						<td nowrap>${ booking.name }</td>
+						<td nowrap>${ booking.date }</td>
+						<td nowrap>${ booking.createTime }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
