@@ -7,6 +7,36 @@
 		<meta charset="UTF-8">
 		<title>Booking List</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+		<style>
+	        .button-success,
+	        .button-error,
+	        .button-warning,
+	        .button-secondary {
+	            color: white;
+	            border-radius: 4px;
+	            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	        }
+	
+	        .button-success {
+	            background: rgb(28, 184, 65);
+	            /* this is a green */
+	        }
+	
+	        .button-error {
+	            background: rgb(202, 60, 60);
+	            /* this is a maroon */
+	        }
+	
+	        .button-warning {
+	            background: rgb(223, 117, 20);
+	            /* this is an orange */
+	        }
+	
+	        .button-secondary {
+	            background: rgb(66, 184, 221);
+	            /* this is a light blue */
+	        }
+	    </style>
 	</head>
 	<body>
 		<table class="pure-table pure-table-bordered">
@@ -21,7 +51,9 @@
 				<c:forEach items="${ bookingRooms }" var="booking">
 					<tr>
 						<td nowrap>
-							<a href="javascript:void(0)" onClick="">
+							<a href="javascript:void(0)" 
+							   onClick=""
+							   class="button-error pure-button">
 								取消
 							</a>
 						</td>
