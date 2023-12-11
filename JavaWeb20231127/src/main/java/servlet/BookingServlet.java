@@ -125,7 +125,11 @@ public class BookingServlet extends HttpServlet {
 				
 				break;
 			default: // 其他
-				resp.sendError(500, "別鬧了~");
+				String errorMessage = "無此路徑";
+				// 傳送到指定 jsp 進行資料渲染
+				RequestDispatcher rd4 = req.getRequestDispatcher("/WEB-INF/views/bookingResult.jsp");
+				req.setAttribute("resultMessage", errorMessage);
+				rd4.forward(req, resp);
 				break;
 		}
 		
