@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.BookingDao;
 import dao.BookingDaoImpl;
+import dao.model.BookingRoom;
 
 /**
  * 會議室預訂系統
@@ -81,10 +82,17 @@ public class BookingServlet extends HttpServlet {
 		
 		switch(pathInfo) {
 			case "/bookRoom": // 預約房間
+				// 得到表單傳來的資料
 				String roomId = req.getParameter("roomId");
 				String name = req.getParameter("name");
 				String date = req.getParameter("date");
-				
+				// 將表單資料注入到 BookingRoom 物件 
+				BookingRoom bookingRoom = new BookingRoom();
+				bookingRoom.setRoomId(Integer.valueOf(roomId));
+				bookingRoom.setName(name);
+				bookingRoom.setDate(date);
+				// 新增預約單
+				dao.addBookingRoom(bookingRoom);
 				
 				break;
 			case "/cancelBooking": // 取消預約
