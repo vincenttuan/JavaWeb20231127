@@ -114,7 +114,6 @@ public class BookingServlet extends HttpServlet {
 				req.setAttribute("resultMessage", cancelResultMessage);
 				rd2.forward(req, resp);
 				
-				
 				break;	
 			case "/viewBookings": // 查看預約
 				
