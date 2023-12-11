@@ -93,8 +93,15 @@ public class BookingServlet extends HttpServlet {
 				bookingRoom.setName(name);
 				bookingRoom.setDate(date);
 				// 新增預約單
-				int rowcount = dao.addBookingRoom(bookingRoom);
-				String resultMessage = rowcount == 0 ? "新增失敗" : "新增成功";
+				
+				String resultMessage = null;
+				try {
+					int rowcount = dao.addBookingRoom(bookingRoom);
+					resultMessage = rowcount == 0 ? "新增失敗" : "新增成功";
+				} catch (Exception e) {
+					resultMessage = "新增失敗, 原因:" + 
+							(e.getMessage().contains("Duplicate entry")?"重複預約":"其他錯誤");
+				}
 				
 				// 傳送到指定 jsp 進行資料渲染
 				RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/bookingResult.jsp");
