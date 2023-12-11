@@ -132,9 +132,5 @@ public class BookingServlet extends HttpServlet {
 				rd4.forward(req, resp);
 				break;
 		}
-		
 	}
-	
-	
-	
 }
