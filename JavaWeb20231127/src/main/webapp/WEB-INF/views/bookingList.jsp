@@ -9,12 +9,11 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 	</head>
 	<body>
-		
-		<table class="pure-table-bordered">
+		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
-					<th>bookingId</th><th>roomId</th><th>name</th>
-					<th>date</th><th>createTime</th>
+					<th>預約號碼</th><th>房間號碼</th><th>預約人</th>
+					<th>預約日期</th><th>建立時間</th>
 				</tr>
 			</thead>
 			<tbody>
