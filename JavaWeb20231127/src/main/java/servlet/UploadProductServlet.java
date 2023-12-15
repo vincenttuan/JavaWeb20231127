@@ -36,7 +36,10 @@ public class UploadProductServlet extends HttpServlet {
 		Part filePart = req.getPart("productFile");
 		String fileName = getFileName(filePart);
 		resp.getWriter().println("fileName: " + fileName);
-		
+		resp.getWriter().println("<p>");
+		// 存檔
+		filePart.write(fileName);
+		resp.getWriter().println("存檔完成");
 	}
 	
 	private String getFileName(Part part) {
