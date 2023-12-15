@@ -21,8 +21,8 @@
 			        const matches = fileName.match(/^(.*)\$([\d]+)\.jpg$/);
 			        console.log(matches);
 			        if(matches && matches.length >= 3) {
-						const productName = matches[1];
-						const productPrice = matches[2];
+						const productName = matches[1].trim();
+						const productPrice = matches[2].trim();
 						productNameInput.value = productName;
 						productPriceInput.value = productPrice;
 					}
