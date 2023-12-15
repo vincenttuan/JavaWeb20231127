@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 @WebServlet("/upload/product")
 @MultipartConfig(
@@ -30,6 +31,23 @@ public class UploadProductServlet extends HttpServlet {
 		String price = req.getParameter("productPrice");
 		resp.getWriter().println("price: " + price);
 		resp.getWriter().println("<p>");
+		
+		// 取得上傳文件
+		Part filePart = req.getPart("productFile");
+		String fileName = getFileName(filePart);
+		resp.getWriter().println("fileName: " + fileName);
+		
 	}
+	
+	private String getFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] tokens = contentDisp.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename")) {
+                return token.substring(token.indexOf("=") + 2, token.length() - 1);
+            }
+        }
+        return "";
+    }
 	
 }
