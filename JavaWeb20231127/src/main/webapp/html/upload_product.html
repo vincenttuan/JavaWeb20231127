@@ -16,6 +16,28 @@
 			        productNameInput.value = "";
 			    }
 			}
+			// 預覽圖片
+			function displayImage(input) {
+			    const imagePreview = document.getElementById("imagePreview");
+			    imagePreview.innerHTML = ""; // 清空
+			
+			    if (input.files.length > 0) {
+			        const file = input.files[0];
+			        if (file.type.startsWith("image/")) {
+			            const reader = new FileReader();
+			
+			            reader.onload = function(e) {
+			                const image = document.createElement("img");
+			                image.src = e.target.result;
+			                image.style.maxWidth = "100px";
+			                image.style.maxHeight = "60px";
+			                imagePreview.appendChild(image);
+			            };
+			
+			            reader.readAsDataURL(file);
+			        }
+			    }
+			}
 		</script>
 	</head>
 	<body style="padding: 15px;">
