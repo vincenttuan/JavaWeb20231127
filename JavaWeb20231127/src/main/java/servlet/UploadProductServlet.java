@@ -19,8 +19,17 @@ public class UploadProductServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
+		
 		String name = req.getParameter("productName");
 		resp.getWriter().println("name: " + name);
+		resp.getWriter().println("<p>");
+		
+		String price = req.getParameter("productPrice");
+		resp.getWriter().println("price: " + price);
+		resp.getWriter().println("<p>");
 	}
 	
 }
