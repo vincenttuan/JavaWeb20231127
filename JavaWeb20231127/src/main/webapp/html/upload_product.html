@@ -7,8 +7,13 @@
 	</head>
 	<body style="padding: 15px;">
 		<form method="post" action="/upload/product" enctype="multipart/form-data" class="pure-form">
-			
+			<fieldset>
+				<legend>Upload Product</legend>
+				商品名稱: <input type="text" name="productName" required><p /> 
+				商品價格: <input type="number" name="productPrice" required><p />
+				商品圖片: <input type="file" name="productFile" accept=".jpg" required><p />
+				<button type="submit">上傳</button>
+			</fieldset>
 		</form>
-		
 	</body>
 </html>
