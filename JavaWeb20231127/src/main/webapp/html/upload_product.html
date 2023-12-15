@@ -17,6 +17,7 @@
 			    
 			    if (input.files.length > 0) {
 			        const fileName = input.files[0].name;
+			        console.log(fileName);
 			        // 利用正則表示式來提取檔名(xxx$100.jpg)中的 xxx 和 100 
 			        const matches = fileName.match(/^(.*)\$([\d]+)\.jpg$/);
 			        console.log(matches);
@@ -25,6 +26,9 @@
 						const productPrice = matches[2].trim();
 						productNameInput.value = productName;
 						productPriceInput.value = productPrice;
+					} else {
+						productNameInput.value = fileName.split('.')[0];
+						productPriceInput.value = '';
 					}
 			        
 			    } else {
