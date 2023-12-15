@@ -13,12 +13,22 @@
 			// 將上傳檔案的名字放在 productName 欄位中
 			function displayFileName(input) {
 			    const productNameInput = document.getElementById("productName");
+			    const productPriceInput = document.getElementById("productPrice");
+			    
 			    if (input.files.length > 0) {
 			        const fileName = input.files[0].name;
-			        const fileNameWithoutExtension = fileName.split('.').slice(0, -1).join('.'); // 去除副檔名
-			        productNameInput.value = fileNameWithoutExtension;
+			        // 利用正則表示式來提取檔名(xxx$100.jpg)中的 xxx 和 100 
+			        const matches = fileName.match(/^(.*?)\$([\d]+)\.jpg$/);
+			        if(matches && matches.length >= 3) {
+						const productName = matches[1];
+						const productPrice = matches[2];
+						productNameInput.value = productName;
+						productPriceInput.value = productPrice;
+					}
+			        
 			    } else {
 			        productNameInput.value = "";
+			        productPriceInput.value = "";
 			    }
 			}
 			// 預覽圖片
