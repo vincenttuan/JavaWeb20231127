@@ -27,7 +27,8 @@ private JdbcTemplate jdbcTemplate;
 	}
 	
 	public int addEmployee(String name, String sex, int salary, int age) {
-		
+		String sql = "insert into employee(name, sex, salary, age) values(?, ?, ?, ?)";
+		return jdbcTemplate.update(sql, name, sex, salary, age);
 	}
 	
 }
