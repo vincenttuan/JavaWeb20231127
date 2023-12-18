@@ -44,12 +44,15 @@ public class UploadXLSServlet extends HttpServlet {
 		String realPath = location + File.separator + fileName;
 		
 		XLSService xlsService = new XLSService();
+		int count = 0;
 		try {
 			xlsService.importService(realPath);
+			++count;
 		} catch (Exception e) {
 			System.err.println(e);
 		}
-		
+		resp.getWriter().println("<p>");
+		resp.getWriter().println("匯入完成, 筆數: " + count);
 	}
 	
 	private String getFileName(Part part) {
