@@ -35,11 +35,11 @@ public class UploadXLSServlet extends HttpServlet {
 		// 存檔
 		filePart.write(fileName);
 		resp.getWriter().println("存檔完成");
-		
+		// -----------------------------------------------------------------------
 		// 取得 MultipartConfig 設定資料
 		MultipartConfig config = getClass().getAnnotation(MultipartConfig.class);
 		// 基礎路徑
-		String location = config.location();
+		String location = config.location(); // 得到 "C:\\FileServer\\upload\\xls"
 		// 絕對路徑
 		String realPath = location + File.separator + fileName;
 		
@@ -47,7 +47,7 @@ public class UploadXLSServlet extends HttpServlet {
 		try {
 			xlsService.importService(realPath);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
 		}
 		
 	}
