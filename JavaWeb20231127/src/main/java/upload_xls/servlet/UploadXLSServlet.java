@@ -1,5 +1,6 @@
 package upload_xls.servlet;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import upload_xls.service.XLSService;
 
 @WebServlet("/upload/xls")
 @MultipartConfig(
@@ -32,6 +35,21 @@ public class UploadXLSServlet extends HttpServlet {
 		// 存檔
 		filePart.write(fileName);
 		resp.getWriter().println("存檔完成");
+		
+		// 取得 MultipartConfig 設定資料
+		MultipartConfig config = getClass().getAnnotation(MultipartConfig.class);
+		// 基礎路徑
+		String location = config.location();
+		// 絕對路徑
+		String realPath = location + File.separator + fileName;
+		
+		XLSService xlsService = new XLSService();
+		try {
+			xlsService.importService(realPath);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 	
 	private String getFileName(Part part) {
