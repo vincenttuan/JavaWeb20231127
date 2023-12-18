@@ -14,7 +14,7 @@ public class XLSService {
 	private XLSDao xlsDao = new XLSDao();
 	
 	// 利用 POI 分析 Excel 資訊並匯入到資料庫
-	public void importService(String path) throws Exception {
+	public int importService(String path) throws Exception {
 		// 根據 path 找到文件
 		FileInputStream input = new FileInputStream(path);
 		// 建立 POI 文件系統, 用來讀取 Excel 文件
@@ -24,7 +24,8 @@ public class XLSService {
 		workbook = WorkbookFactory.create(fs);
 		// 建立並獲取 Excel 工作表
 		Sheet sheet = workbook.getSheetAt(0);
-		// 從 1 開始, 因為 0 是標題列 
+		// 從 1 開始, 因為 0 是標題列
+		int count = 0;
 		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
 			// 取得列
 			Row row = (Row) sheet.getRow(i);
@@ -40,9 +41,11 @@ public class XLSService {
 			try {
 				xlsDao.addEmployee(name, sex, salary, age);
 				System.out.println("資料匯入成功");
+				count++;
 			} catch (Exception e) {
 				System.out.println("資料匯入失敗, 可能是 name 已經重複或其他:" + e);	
 			}
 		}
+		return count;
 	}
 }
