@@ -7,7 +7,11 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+import upload_xls.dao.XLSDao;
+
 public class XLSService {
+	
+	private XLSDao xlsDao = new XLSDao();
 	
 	// 利用 POI 分析 Excel 資訊並匯入到資料庫
 	public void importService(String path) throws Exception {
@@ -32,8 +36,13 @@ public class XLSService {
 			int salary = (int)row.getCell(2).getNumericCellValue();
 			// 取得第四欄
 			int age = (int)row.getCell(3).getNumericCellValue();
-			
 			System.out.printf("%s %s %d %d%n", name, sex, salary, age);
+			try {
+				xlsDao.addEmployee(name, sex, salary, age);
+				System.out.println("資料匯入成功");
+			} catch (Exception e) {
+				System.out.println("資料匯入失敗, 可能是 name 已經重複或其他:" + e);	
+			}
 		}
 	}
 }
