@@ -1,5 +1,5 @@
 package upload_xls.service;
 
-public class UploadXLSService {
+public class XLSService {
 
 }
