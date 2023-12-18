@@ -46,7 +46,8 @@ public class UploadXLSServlet extends HttpServlet {
 		XLSService xlsService = new XLSService();
 		int count = 0;
 		try {
-			count = xlsService.importService(realPath);
+			//count = xlsService.importService(realPath);
+			count = xlsService.batchImportService(realPath);
 		} catch (Exception e) {
 			System.err.println(e);
 		}
