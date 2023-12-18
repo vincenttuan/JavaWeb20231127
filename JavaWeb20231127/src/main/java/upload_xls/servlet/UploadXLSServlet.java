@@ -27,7 +27,7 @@ public class UploadXLSServlet extends HttpServlet {
 		// 取得上傳文件
 		Part filePart = req.getPart("xlsFile");
 		String fileName = getFileName(filePart);
-		resp.getWriter().println("fileName: " + fileName);
+		resp.getWriter().println("上傳檔案名稱: " + fileName);
 		resp.getWriter().println("<p>");
 		// 存檔
 		filePart.write(fileName);
