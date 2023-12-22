@@ -1,3 +1,4 @@
+drop table if exists actor_ref_service;
 drop table if exists user;
 drop table if exists service;
 drop table if exists actor;
@@ -28,6 +29,8 @@ create table if not exists service(
 create table if not exists actor_ref_service(
 	a_id int not null,
     s_id int not null,
+    foreign key (a_id) references actor(a_id),
+    foreign key (s_id) references service(s_id),
     CONSTRAINT unique_sid_and_aid UNIQUE(a_id, s_id)
 );
 
