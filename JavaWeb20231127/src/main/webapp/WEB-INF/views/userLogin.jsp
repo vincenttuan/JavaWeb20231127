@@ -14,7 +14,7 @@
 				🎅帳號: <input type="text" id="username" name="username" required placeholder="請輸入帳號"><p />
 				🔑密碼: <input type="password" id="password" name="password" required placeholder="請輸入密碼"><p />
 				🔐驗證: <input type="text" id="code" name="code" required placeholder="請輸入驗證碼">
-					 <img src="${pageContext.request.contextPath}/code/image" alt="驗證碼" title="驗證碼"><p />
+					 <img valign="middle" src="${pageContext.request.contextPath}/code/image" alt="驗證碼" title="驗證碼"><p />
 				<button type="submit" class="pure-button pure-button-primary">登入</button>	
 			</fieldset>
 			
