@@ -45,8 +45,12 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<Map<String, Object>> findServicesByActorId(Integer a_Id) {
-		
-		return null;
+		String sql = "select a.a_id, s.s_id, s.servicename, s.serviceurl "
+				+ "from actor a "
+				+ "left join actor_ref_service r on a.a_id = r.a_id "
+				+ "left join service s on r.s_id = s.s_id "
+				+ "where a.a_id = ?";
+		return jdbcTemplate.queryForList(sql, a_Id);
 	}
 
 }
