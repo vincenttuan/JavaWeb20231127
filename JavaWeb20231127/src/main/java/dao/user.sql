@@ -47,3 +47,11 @@ insert into actor_ref_service(a_id, s_id) values(1, 3);
 insert into actor_ref_service(a_id, s_id) values(1, 4);
 insert into actor_ref_service(a_id, s_id) values(2, 2);
 insert into actor_ref_service(a_id, s_id) values(2, 3);
+
+-- john 有哪些服務可以使用
+select u.username, a.actorname, s.s_id, s.servicename, s.serviceurl
+from user u
+left join actor a on u.a_id = a.a_id
+left join actor_ref_service r on u.a_id = r.a_id
+left join service s on r.s_id = s.s_id
+where u.username = 'John'
