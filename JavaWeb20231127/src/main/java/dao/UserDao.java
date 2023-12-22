@@ -7,8 +7,8 @@ import dao.model.User;
 
 public interface UserDao {
 	
-	User login(String username, String password);
+	User login(String username, String password); // 驗證
 	
-	List<Map<String, Object>> findServiceByActorId(Integer a_Id);
+	List<Map<String, Object>> findServicesByActorId(Integer a_Id); // 授權使用的服務
 	
 }
