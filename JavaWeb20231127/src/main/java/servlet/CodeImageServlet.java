@@ -34,9 +34,18 @@ public class CodeImageServlet extends HttpServlet {
 		// 5. 設定顏色
 		g.setColor(Color.BLACK);
 		// 6. 設定自型
-		g.setFont(new Font("Arial", Font.BOLD, 30));
+		g.setFont(new Font("Arial", Font.PLAIN, 30));
 		// 7. 繪文字
 		g.drawString(code, 10, 23);
+		// 8. 干擾線
+		g.setColor(Color.RED);
+		for(int i=0;i<10;i++) {
+			int x1 = random.nextInt(80);
+			int y1 = random.nextInt(30);
+			int x2 = random.nextInt(80);
+			int y2 = random.nextInt(30);
+			g.drawLine(x1, y1, x2, y2);
+		}
 		
 		// 設定回傳類型
 		resp.setContentType("image/png");
