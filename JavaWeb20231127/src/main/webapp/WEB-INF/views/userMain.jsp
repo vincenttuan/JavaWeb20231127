@@ -9,9 +9,10 @@
 	</head>
 	<body style="padding: 15px">
 		<form action="${pageContext.request.contextPath}/user/login" method="post" class="pure-form">
-			帳號: <input type="text" id="username" name="username"><p />
-			密碼: <input type="password" id="password" name="password"><p />
-			驗證: <img src="${pageContext.request.contextPath}/code/image" alt="驗證碼"><p />
+			帳號: <input type="text" id="username" name="username" required placeholder="請輸入帳號"><p />
+			密碼: <input type="password" id="password" name="password" required placeholder="請輸入密碼"><p />
+			驗證: <input type="text" id="code" name="code" required placeholder="請輸入驗證碼"><p />
+				 <img src="${pageContext.request.contextPath}/code/image" alt="驗證碼"><p />
 			<button type="submit" class="pure-button pure-button-primary">登入</button>
 		</form>
 	</body>
