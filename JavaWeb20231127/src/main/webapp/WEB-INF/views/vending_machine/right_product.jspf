@@ -4,37 +4,37 @@
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/beer.png" style="width: 50px"><p>
-			台灣啤酒<br>
-			$50<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>台灣啤酒</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/cola.png" style="width: 50px"><p>
-			可口可樂<br>
-			$30<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>可口可樂</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/crapefruit.png" style="width: 50px"><p>
-			柚子茶<br>
-			$40<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>柚子茶</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/energy.png" style="width: 50px"><p>
-			動能飲料<br>
-			$35<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>動能飲料</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 	</tr>
@@ -42,37 +42,37 @@
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/lemon.png" style="width: 50px"><p>
-			檸檬汽水<br>
-			$35<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>檸檬汽水</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/orange.png" style="width: 50px"><p>
-			橘子汽水<br>
-			$30<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>橘子汽水</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/raspberry.png" style="width: 50px"><p>
-			覆盆子茶<br>
-			$45<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>覆盆子茶</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
 			<div class="pure-form">
 			<img src="${pageContext.request.contextPath}/image/soda.png" style="width: 50px"><p>
-			氣泡水<br>
-			$20<br>
-			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
-			庫存:10
+			<div>氣泡水</div>
+			價格：<input type="text" style="width: 50px; height: 30px" value="50" readonly><br>
+			數量：<input type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
+			庫存：<input type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 	</tr>
