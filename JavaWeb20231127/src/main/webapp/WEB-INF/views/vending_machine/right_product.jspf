@@ -1,1 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<table class="pure-table">
+	<tr>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/beer.png" style="width: 50px"><p>
+			台灣啤酒<br>
+			$50<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/cola.png" style="width: 50px"><p>
+			可口可樂<br>
+			$30<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/crapefruit.png" style="width: 50px"><p>
+			柚子茶<br>
+			$40<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/energy.png" style="width: 50px"><p>
+			動能飲料<br>
+			$35<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+	</tr>
+</table>
