@@ -1,1 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<table>
+	<tr>
+		<td colspan="2">
+			<img src="${pageContext.request.contextPath}/image/vending_machine.png">
+		</td>
+	</tr>
+	<tr>
+		<td align="right">使用者:</td>
+		<td>John</td>
+	</tr>
+	<tr>
+		<td align="right">總金額:</td>
+		<td>65</td>
+	</tr>
+	<tr>
+		<td align="right">投幣額:</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>
+			<button type="button" class="pure-button">清空</button>
+		</td>
+		<td>
+			<button type="button" class="pure-button-primary">購買</button>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">找零錢:</td>
+		<td>35</td>
+	</tr>
+</table>
