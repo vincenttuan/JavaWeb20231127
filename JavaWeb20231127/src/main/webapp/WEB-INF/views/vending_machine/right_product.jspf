@@ -4,7 +4,8 @@
 		var priceInput = document.getElementById(productName + '_price');
 		var amountInput = document.getElementById(productName + '_amount');
 		var stockInput = document.getElementById(productName + '_stock');
-		stockInput.value = stockInput.value - amountInput.value;
+		var initStock = stockInput.getAttribute('data-initstock');
+		stockInput.value = initStock - amountInput.value;
 	}
 </script>
 <table class="pure-table">
@@ -15,7 +16,7 @@
 			<div>台灣啤酒</div>
 			價格：<input id="beer_price" type="text" style="width: 50px; height: 30px" value="50" readonly><br>
 			數量：<input id="beer_amount" onchange="changeAmount('beer')" type="number" style="width: 50px; height: 30px" value="0" min="0" max="9"><br>
-			庫存：<input id="beer_stock" type="text" style="width: 50px; height: 30px" value="10" readonly><br>
+			庫存：<input id="beer_stock" data-initstock="10" type="text" style="width: 50px; height: 30px" value="10" readonly><br>
 			</div>
 		</td>
 		<td>
