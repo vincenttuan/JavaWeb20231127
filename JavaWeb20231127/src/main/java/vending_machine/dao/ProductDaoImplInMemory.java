@@ -22,20 +22,17 @@ public class ProductDaoImplInMemory implements ProductDao {
 	
 	@Override
 	public List<Product> findAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return products;
 	}
 
 	@Override
 	public Product getProductByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return products.stream().filter(p -> p.getName().equals(name)).findFirst().get();
 	}
 
 	@Override
 	public Product getProductById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return products.stream().filter(p -> p.getId().equals(id)).findFirst().get();
 	}
 
 }
