@@ -1,12 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script>
-	function changeAmount(productName) {
+	function changeAmount(productName, delta) {
 		var priceInput = document.getElementById(productName + '_price');
 		var amountInput = document.getElementById(productName + '_amount');
 		var stockInput = document.getElementById(productName + '_stock');
 		var initStock = stockInput.getAttribute('data-initstock');
-		stockInput.value = initStock - amountInput.value;
+		
+		var newAmount = parseInt(amountInput.value) + delta; // 計算最新數量
+		if(newAmount >= 0 && newAmount < 10 && newAmount <= initStock) {
+			amountInput = newAmount;
+			stockInput.value = initStock - newAmount;	
+		} 
+		
+	}
+	
+	function incrementAmount(productName) {
+		changeAmount(productName, 1);
+	}
+	
+	function decrementAmount(productName, event) {
+		event.preventDefault(); // 防止預設的右鍵 menu 彈出
+		changeAmount(productName, -1);
 	}
 </script>
 <table class="pure-table">
