@@ -5,12 +5,14 @@
 		var priceInput = document.getElementById(productName + '_price');
 		var amountInput = document.getElementById(productName + '_amount');
 		var stockInput = document.getElementById(productName + '_stock');
+		var totalPriceInput = document.getElementById('total_price');
 		var initStock = stockInput.getAttribute('data-initstock');
 		
 		var newAmount = parseInt(amountInput.value) + delta; // 計算最新數量
 		if(newAmount >= 0 && newAmount < 10 && newAmount <= initStock) {
 			amountInput.value = newAmount;
-			stockInput.value = initStock - newAmount;	
+			stockInput.value = initStock - newAmount;
+			totalPriceInput.value = parseInt(amountInput.value) * parseInt(priceInput.value); 
 		} 
 		
 	}
