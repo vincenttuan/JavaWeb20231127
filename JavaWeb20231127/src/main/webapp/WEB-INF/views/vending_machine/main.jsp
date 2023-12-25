@@ -13,11 +13,11 @@
 			<tr>
 				<!-- 左邊投幣區 -->
 				<td valign="top">
-					
+					<%@ include file="left_coin.jspf" %>
 				</td>
 				<!-- 右邊商品區 -->
 				<td valign="top">
-					
+					<%@ include file="right_product.jspf" %>
 				</td>
 			</tr>
 		</table>
