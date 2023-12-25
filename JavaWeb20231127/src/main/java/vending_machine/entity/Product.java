@@ -7,6 +7,17 @@ public class Product {
 	private Integer price;
 	private Integer stock;
 	
+	public Product() {
+		
+	}
+	
+	public Product(Integer id, String name, String imageName, Integer price, Integer stock) {
+		this.id = id;
+		this.name = name;
+		this.imageName = imageName;
+		this.price = price;
+		this.stock = stock;
+	}
 	public Integer getId() {
 		return id;
 	}
