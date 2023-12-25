@@ -38,4 +38,42 @@
 			</div>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/lemon.png" style="width: 50px"><p>
+			檸檬汽水<br>
+			$35<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/orange.png" style="width: 50px"><p>
+			橘子汽水<br>
+			$30<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/raspberry.png" style="width: 50px"><p>
+			覆盆子茶<br>
+			$45<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+		<td>
+			<div class="pure-form">
+			<img src="${pageContext.request.contextPath}/image/soda.png" style="width: 50px"><p>
+			氣泡水<br>
+			$20<br>
+			數量:<input type="number" style="width: 50px" value="0" min="0" max="9"><br>
+			庫存:10
+			</div>
+		</td>
+	</tr>
 </table>
