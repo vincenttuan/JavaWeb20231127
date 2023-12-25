@@ -12,6 +12,9 @@
 <table class="pure-table">
 	<tr>
 		<c:forEach items="${ products }" var="product" varStatus="status">
+			<c:if test="${ status.index gt 0 and status.index mod 4 eq 0 }">
+				</tr><tr>
+			</c:if>
 			<td>
 				<div class="pure-form">
 				<img src="${pageContext.request.contextPath}/image/${ product.imageName }.png" 
