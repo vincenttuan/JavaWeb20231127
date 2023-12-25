@@ -9,6 +9,17 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/demo.css">
 	</head>
 	<body style="padding: 15px">
-		
+		<table>
+			<tr>
+				<!-- 左邊投幣區 -->
+				<td valign="top">
+					
+				</td>
+				<!-- 右邊商品區 -->
+				<td valign="top">
+					
+				</td>
+			</tr>
+		</table>
 	</body>
 </html>
