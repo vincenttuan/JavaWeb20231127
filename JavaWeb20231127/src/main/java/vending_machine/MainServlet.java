@@ -1,6 +1,7 @@
 package vending_machine;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,9 +24,14 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/vending_machine/main.jsp");
-		List<Product> products = productDao.findAllProducts();
-		List<SalesItem> salesItems = productDao.findAllSalesItems();
-				
+		List<Product> products = productDao.findAllProducts(); // 所有的進貨資料
+		List<SalesItem> salesItems = productDao.findAllSalesItems(); // 所有的銷貨資料
+		
+		List<Product> cloneProducts = new ArrayList<>();
+		products.forEach(product -> {
+			cloneProducts.add(new Product(product.getId(), product.getName(), product.getImageName(), product.getPrice(), product.getStock()));
+		});
+		
 		req.setAttribute("products", productDao.findAllProducts());
 		rd.forward(req, resp);
 	}
