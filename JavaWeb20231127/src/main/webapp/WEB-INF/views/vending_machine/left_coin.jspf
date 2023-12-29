@@ -19,11 +19,16 @@
 	</tr>
 	<tr>
 		<td align="right">投幣額</td>
-		<td>100</td>
+		<td>
+			<input type="text" id="coin_amount" name="coin_amount"><br>
+			<button type="button">50</button>
+			<button type="button">10</button>
+			<button type="button">5</button>
+		</td>
 	</tr>
 	<tr>
 		<td>
-			<button type="button" class="pure-button">清空</button>
+			<button type="button" class="pure-button">清空/退幣</button>
 		</td>
 		<td>
 			<button type="button" class="pure-button pure-button-primary">購買</button>
