@@ -20,10 +20,13 @@
 	<tr>
 		<td align="right">投幣額</td>
 		<td>
-			<input type="text" id="coin_amount" name="coin_amount"><br>
-			<button type="button">50</button>
-			<button type="button">10</button>
-			<button type="button">5</button>
+			<input type="text" 
+				   id="coin_amount" name="coin_amount"
+				   style="width: 50px; height: 30px"
+				   value="0" readonly><p>
+			<input type="button" style="width: 30px; height: 30px" value="50" onclick="addCoinAmount(this.value)">
+			<input type="button" style="width: 30px; height: 30px" value="10" onclick="addCoinAmount(this.value)">
+			<input type="button" style="width: 30px; height: 30px" value="5" onclick="addCoinAmount(this.value)">
 		</td>
 	</tr>
 	<tr>
