@@ -21,6 +21,7 @@
 		var totalPriceValue = parseInt(totalPriceInput.value);
 		var coinAmountValue = parseInt(coinAmountInput.value);
 		var give_change = coinAmountValue - totalPriceValue;
+		giveChangeInput.value = give_change; 
 	}
 	
 </script>
