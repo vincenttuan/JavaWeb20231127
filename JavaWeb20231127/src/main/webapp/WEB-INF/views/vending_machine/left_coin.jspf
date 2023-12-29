@@ -3,7 +3,7 @@
 	// 投幣
 	function addCoinAmount(amount) {
 		var coinAmountInput = document.getElementById('coin_amount');
-		coinAmountInput = parseInt(coinAmountInput.value) + amount;
+		coinAmountInput.value = parseInt(coinAmountInput.value) + amount;
 		
 	}
 </script>
