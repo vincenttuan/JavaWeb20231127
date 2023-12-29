@@ -28,7 +28,7 @@
 		<td>
 			<input  type="text"
 					id="total_price" name="total_price"
-					style="width: 50px; height: 20px" 
+					style="border: none" 
 					value="0" readonly>
 		</td>
 	</tr>
@@ -37,7 +37,7 @@
 		<td>
 			<input type="text" 
 				   id="coin_amount" name="coin_amount"
-				   style="width: 50px; height: 20px"
+				   style="border: none" 
 				   value="0" readonly><p>
 			<input type="button" class="circle30" value="50" onclick="addCoinAmount(this.value)">
 			<input type="button" class="circle30" value="10" onclick="addCoinAmount(this.value)">
@@ -57,7 +57,7 @@
 		<td>
 			<input type="text" 
 				   id="give_change" name="give_change"
-				   style="width: 50px; height: 20px"
+				   style="border: none" 
 				   value="0" readonly>
 		</td>
 	</tr>
