@@ -8,8 +8,17 @@
 	
 	// 退幣
 	function resetCoinAmount() {
+		location.reload();
+	}
+	
+	// 找零
+	function giveChange() {
+		var totalPriceInput = document.getElementById('total_price');
 		var coinAmountInput = document.getElementById('coin_amount');
-		coinAmountInput.value = 0;
+		var giveChangeInput = document.getElementById('give_change');
+		var totalPriceValue = parseInt(totalPriceInput.value);
+		var coinAmountValue = parseInt(coinAmountInput.value);
+		var give_change = coinAmountValue - totalPriceValue;
 	}
 	
 </script>
