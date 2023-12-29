@@ -33,6 +33,15 @@ public class MainServlet extends HttpServlet {
 			cloneProducts.add(new Product(product.getId(), product.getName(), product.getImageName(), product.getPrice(), product.getStock()));
 		});
 		
+		// cloneProducts 扣除銷貨資料
+		for(Product product : cloneProducts) {
+			for(SalesItem salesItem : salesItems) {
+				if(product.getId().equals(salesItem.getProductId())) {
+					product.setStock(product.getStock() - salesItem.getTotalAmount());
+				}
+			}
+		}
+		
 		req.setAttribute("products", cloneProducts);
 		rd.forward(req, resp);
 	}
