@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script>
+	// 投幣
+	function addCoinAmount(amount) {
+		var coinAmountInput = document.getElementById('coin_amount');
+		coinAmountInput = parseInt(coinAmountInput.value) + amount;
+		
+	}
+</script>
 <table class="pure-table">
 	<tr>
 		<td colspan="2">
