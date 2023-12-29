@@ -4,8 +4,14 @@
 	function addCoinAmount(amount) {
 		var coinAmountInput = document.getElementById('coin_amount');
 		coinAmountInput.value = parseInt(coinAmountInput.value) + parseInt(amount);
-		
 	}
+	
+	// 退幣
+	function resetCoinAmount() {
+		var coinAmountInput = document.getElementById('coin_amount');
+		coinAmountInput.value = 0;
+	}
+	
 </script>
 <table class="pure-table">
 	<tr>
@@ -39,7 +45,7 @@
 	</tr>
 	<tr>
 		<td>
-			<button type="button" class="pure-button">清空/退幣</button>
+			<button type="button" class="pure-button" onclick="resetCoinAmount()">清空/退幣</button>
 		</td>
 		<td>
 			<button type="button" class="pure-button pure-button-primary">購買</button>
