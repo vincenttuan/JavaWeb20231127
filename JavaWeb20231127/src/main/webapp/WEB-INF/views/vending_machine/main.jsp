@@ -12,9 +12,8 @@
 	            width: 30px;
 	            height: 30px;
 	            border-radius: 50%;
-	            background-color: #ff0000; /* Replace with your desired color */
+	            background-color: #eeeeee; /* Replace with your desired color */
 	            background-size: contain;
-	            display: flex;
 	            align-items: center;
 	            justify-content: center;
 	            text-align: center;
