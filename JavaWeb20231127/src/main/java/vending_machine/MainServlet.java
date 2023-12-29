@@ -37,6 +37,7 @@ public class MainServlet extends HttpServlet {
 		for(Product product : cloneProducts) {
 			for(SalesItem salesItem : salesItems) {
 				if(product.getId().equals(salesItem.getProductId())) {
+					// 最新庫存量 = 目前庫存量 - 銷貨量
 					product.setStock(product.getStock() - salesItem.getTotalAmount());
 				}
 			}
