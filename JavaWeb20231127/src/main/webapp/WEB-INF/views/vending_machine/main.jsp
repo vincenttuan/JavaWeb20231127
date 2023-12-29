@@ -21,7 +21,7 @@
 		</style>
 	</head>
 	<body style="padding: 15px">
-		<form>
+		<form method="post" action="${pageContext.request.contextPath}/vending/submit">
 		<table>
 			<tr>
 				<!-- 左邊投幣區 -->
