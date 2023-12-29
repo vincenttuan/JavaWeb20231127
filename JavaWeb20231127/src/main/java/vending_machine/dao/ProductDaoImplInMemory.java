@@ -24,6 +24,7 @@ public class ProductDaoImplInMemory implements ProductDao {
 		salesItems.add(new SalesItem(1, "台灣啤酒", 50, 1));
 		salesItems.add(new SalesItem(2, "可口可樂", 50, 2));
 		salesItems.add(new SalesItem(8, "氣泡水", 45, 3));
+		
 	}
 	
 	@Override
