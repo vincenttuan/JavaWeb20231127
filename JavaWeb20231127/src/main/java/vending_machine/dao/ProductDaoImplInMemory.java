@@ -21,9 +21,9 @@ public class ProductDaoImplInMemory implements ProductDao {
 		products.add(new Product(7, "覆盆子茶", "raspberry", 45, 10));
 		products.add(new Product(8, "氣泡水", "soda", 15, 10));
 		// 銷貨
-		salesItems.add(new SalesItem(1, "台灣啤酒", 50, 1));
-		salesItems.add(new SalesItem(2, "可口可樂", 50, 2));
-		salesItems.add(new SalesItem(8, "氣泡水", 45, 3));
+		salesItems.add(new SalesItem(1, "beer", 50, 1));
+		salesItems.add(new SalesItem(2, "cola", 50, 2));
+		salesItems.add(new SalesItem(8, "soda", 45, 3));
 		
 	}
 	
@@ -45,6 +45,11 @@ public class ProductDaoImplInMemory implements ProductDao {
 	@Override
 	public List<SalesItem> findAllSalesItems() {
 		return salesItems;
+	}
+
+	@Override
+	public Product getProductByImageName(String name) {
+		return products.stream().filter(p -> p.getImageName().equals(name)).findFirst().get();
 	}
 
 }

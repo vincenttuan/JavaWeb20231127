@@ -9,5 +9,6 @@ public interface ProductDao {
 	List<Product> findAllProducts();
 	List<SalesItem> findAllSalesItems();
 	Product getProductByName(String name);
+	Product getProductByImageName(String name);
 	Product getProductById(Integer id);
 }
