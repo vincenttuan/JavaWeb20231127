@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vending_machine.entity.Product;
+import vending_machine.entity.SalesItem;
 
 public class ProductDaoImplInMemory implements ProductDao {
-	private List<Product> products;
+	private static List<Product> products = new ArrayList<>();
+	private static List<SalesItem> salesItems = new ArrayList<>();
 	
-	public ProductDaoImplInMemory() {
-		products = new ArrayList<>();
+	static {
+		// 進貨
 		products.add(new Product(1, "台灣啤酒", "beer", 50, 5));
 		products.add(new Product(2, "可口可樂", "cola", 25, 10));
 		products.add(new Product(3, "柚子茶", "crapefruit", 20, 7));
@@ -18,6 +20,10 @@ public class ProductDaoImplInMemory implements ProductDao {
 		products.add(new Product(6, "橘子汽水", "orange", 35, 10));
 		products.add(new Product(7, "覆盆子茶", "raspberry", 45, 10));
 		products.add(new Product(8, "氣泡水", "soda", 15, 10));
+		// 銷貨
+		salesItems.add(new SalesItem(1, "台灣啤酒", 1, 50));
+		salesItems.add(new SalesItem(2, "可口可樂", 2, 50));
+		salesItems.add(new SalesItem(8, "氣泡水", 3, 45));
 	}
 	
 	@Override
