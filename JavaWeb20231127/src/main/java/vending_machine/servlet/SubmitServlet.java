@@ -1,6 +1,8 @@
 package vending_machine.servlet;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +19,13 @@ public class SubmitServlet extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
 		
-		resp.getWriter().print(req.getParameterMap());
+		Map<String, String[]> map = req.getParameterMap();
+		map.entrySet().forEach(entry -> {
+			try {
+				resp.getWriter().println(entry.getKey() + ":" + Arrays.toString(entry.getValue()));
+			} catch (Exception e) {
+			}
+		});
 	}
 	
 }
