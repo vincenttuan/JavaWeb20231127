@@ -4,6 +4,8 @@
 	function addCoinAmount(amount) {
 		var coinAmountInput = document.getElementById('coin_amount');
 		coinAmountInput.value = parseInt(coinAmountInput.value) + parseInt(amount);
+		// 找錢程序
+		giveChange();
 	}
 	
 	// 退幣
