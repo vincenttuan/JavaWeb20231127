@@ -41,4 +41,9 @@ public class ProductDaoImplInMemory implements ProductDao {
 		return products.stream().filter(p -> p.getId().equals(id)).findFirst().get();
 	}
 
+	@Override
+	public List<SalesItem> findAllSalesItems() {
+		return salesItems;
+	}
+
 }
