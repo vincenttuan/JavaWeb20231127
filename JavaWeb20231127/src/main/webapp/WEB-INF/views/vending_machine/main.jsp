@@ -21,6 +21,7 @@
 		</style>
 	</head>
 	<body style="padding: 15px">
+		<form>
 		<table>
 			<tr>
 				<!-- 左邊投幣區 -->
@@ -33,5 +34,6 @@
 				</td>
 			</tr>
 		</table>
+		</form>
 	</body>
 </html>
