@@ -28,9 +28,9 @@ public class ProductDaoImplInMemory implements ProductDao {
 		products.add(new Product(7, "覆盆子茶", "raspberry", 45, 10));
 		products.add(new Product(8, "氣泡水", "soda", 15, 10));
 		// 銷貨
-		salesItems.add(new SalesItem(1, "beer", 50, 1));
-		salesItems.add(new SalesItem(2, "cola", 50, 2));
-		salesItems.add(new SalesItem(8, "soda", 45, 3));
+		salesItems.add(new SalesItem(1, "beer", 50, 1, 1));
+		salesItems.add(new SalesItem(2, "cola", 50, 2, 3));
+		salesItems.add(new SalesItem(8, "soda", 45, 3, 1));
 		
 	}
 	
