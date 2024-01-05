@@ -2,6 +2,7 @@ package vending_machine.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
@@ -57,6 +58,24 @@ public class ProductDaoImplInMemory implements ProductDao {
 	@Override
 	public Product getProductByImageName(String name) {
 		return products.stream().filter(p -> p.getImageName().equals(name)).findFirst().get();
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		return users;
+	}
+
+	@Override
+	public void addUser(User user) {
+		users.add(user);
+	}
+
+	@Override
+	public User getUser(String username) {
+		Optional<User> userOpt = users.stream()
+				.filter(user -> user.getUsername().equals(username))
+				.findFirst();
+		return userOpt.isPresent() ? userOpt.get() : null;
 	}
 
 }
