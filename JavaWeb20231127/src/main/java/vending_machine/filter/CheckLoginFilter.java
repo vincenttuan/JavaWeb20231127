@@ -39,14 +39,16 @@ public class CheckLoginFilter extends HttpFilter {
 			String password = req.getParameter("password");
 			String code = req.getParameter("code");
 			if(username == null || password == null || code == null) {
-				// 重導到登入頁面 
+				// 重導到登入頁面
+				req.setAttribute("msg", "請輸入登入資訊");
 				rd.forward(req, res);
 				return;
 			}
 			// 進行登入檢查
 			// 檢查 code
 			if(!code.equals(session.getAttribute("code")+"")) { // code 不一致
-				// 重導到登入頁面 
+				// 重導到登入頁面
+				req.setAttribute("msg", "驗證碼不正確");
 				rd.forward(req, res);
 				return;
 			}
@@ -55,6 +57,7 @@ public class CheckLoginFilter extends HttpFilter {
 			User user = dao.getUser(username);
 			if(user == null) { // 無此使用者 
 				// 重導到登入頁面 
+				req.setAttribute("msg", "無此使用者");
 				rd.forward(req, res);
 				return;
 			}
@@ -64,7 +67,8 @@ public class CheckLoginFilter extends HttpFilter {
 				session.setAttribute("user", user); // 將 user 物件寫入到 session 變數中存放 
 				
 			} else { // 密碼比對失敗
-				// 重導到登入頁面 
+				// 重導到登入頁面
+				req.setAttribute("msg", "密碼錯誤");
 				rd.forward(req, res);
 				return;
 			}
