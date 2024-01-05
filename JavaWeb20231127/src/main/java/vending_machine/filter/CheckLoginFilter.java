@@ -17,7 +17,7 @@ public class CheckLoginFilter extends HttpFilter {
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		
+		res.getWriter().print("Stop here !");
 	}
 	
 }
