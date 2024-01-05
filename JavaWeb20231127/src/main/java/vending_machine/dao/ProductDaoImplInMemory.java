@@ -3,14 +3,18 @@ package vending_machine.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.model.User;
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
 
 public class ProductDaoImplInMemory implements ProductDao {
+	private static List<User> users = new ArrayList<>();
 	private static List<Product> products = new ArrayList<>();
 	private static List<SalesItem> salesItems = new ArrayList<>();
 	
 	static {
+		// 使用者
+		
 		// 進貨
 		products.add(new Product(1, "台灣啤酒", "beer", 50, 5));
 		products.add(new Product(2, "可口可樂", "cola", 25, 10));
