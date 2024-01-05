@@ -10,11 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import vending_machine.dao.ProductDao;
 import vending_machine.dao.ProductDaoImplInMemory;
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
+import vending_machine.entity.User;
 
 @WebServlet(value = "/vending/submit")
 public class SubmitServlet extends HttpServlet {
@@ -26,6 +28,9 @@ public class SubmitServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
+		
+		HttpSession session = req.getSession();
+		User user = (User)session.getAttribute("user");
 		
 		List<SalesItem> salesItems = productDao.findAllSalesItems();
 		Map<String, String[]> map = req.getParameterMap();
@@ -44,6 +49,7 @@ public class SubmitServlet extends HttpServlet {
 					salesItem.setProductName(productName);
 					salesItem.setTotalPrice(product.getPrice());
 					salesItem.setTotalAmount(productAmount);
+					salesItem.setUserId(user.getId());
 					salesItems.add(salesItem);
 				}
 				
