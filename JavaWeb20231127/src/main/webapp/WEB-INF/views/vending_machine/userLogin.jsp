@@ -19,7 +19,8 @@
 					 	alt="驗證碼" title="看不清楚驗證碼?請按我一下!">
 					 </a>
 					 <p />
-				<button type="submit" class="pure-button pure-button-primary">登入</button>	
+				<button type="submit" class="pure-button pure-button-primary">登入</button>
+				<span style="color: red">${ msg }</span>	
 			</fieldset>
 			
 		</form>

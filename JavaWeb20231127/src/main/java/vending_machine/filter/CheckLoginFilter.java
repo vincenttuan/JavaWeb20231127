@@ -26,7 +26,7 @@ public class CheckLoginFilter extends HttpFilter {
 		// UTF-8 編碼
 		req.setCharacterEncoding("utf-8");
 		res.setCharacterEncoding("utf-8");
-		res.setCharacterEncoding("text/html;chatset=utf-8");
+		//res.setCharacterEncoding("text/html;chatset=utf-8");
 		
 		// 重導到登入頁面的位置
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/vending_machine/userLogin.jsp");
