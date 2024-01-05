@@ -23,6 +23,15 @@ public class MainServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doHandler(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doHandler(req, resp);
+	}
+	
+	private void doHandler(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/vending_machine/main.jsp");
 		List<Product> products = productDao.findAllProducts(); // 所有的進貨資料
 		List<SalesItem> salesItems = productDao.findAllSalesItems(); // 所有的銷貨資料
