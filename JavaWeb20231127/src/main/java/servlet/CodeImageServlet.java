@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/code/image")
 public class CodeImageServlet extends HttpServlet {
@@ -23,6 +24,9 @@ public class CodeImageServlet extends HttpServlet {
 		// 利用 Random 產生一個四位隨機數 
 		Random random = new Random();
 		String code = String.format("%04d", random.nextInt(10000)); // 0~9999
+		// 將 code 存放到 session 變數中, 以利後續比對使用
+		HttpSession session = req.getSession();
+		session.setAttribute("code", code);
 		// 1. 建立圖檔暫存區
 		BufferedImage img = new BufferedImage(80, 30, BufferedImage.TYPE_INT_RGB);
 		// 2. 建立畫布
