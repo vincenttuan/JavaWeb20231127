@@ -12,7 +12,7 @@
 			<fieldset>
 				<legend>Result</legend>
 				${ currentSalesItems } <p>
-				<a href="./main">回首頁</a>
+				<a href="./main" class="pure-button pure-button-primary">回首頁</a>
 			</fieldset>
 			
 		</div>
