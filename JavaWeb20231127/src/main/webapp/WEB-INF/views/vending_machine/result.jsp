@@ -11,6 +11,8 @@
 		<div class="pure-form">
 			<fieldset>
 				<legend>Result</legend>
+				${ currentSalesItems } <p>
+				<a href="./main">回首頁</a>
 			</fieldset>
 			
 		</div>
