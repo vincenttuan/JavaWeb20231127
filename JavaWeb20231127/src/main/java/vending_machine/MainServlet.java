@@ -16,7 +16,7 @@ import vending_machine.dao.ProductDaoImplInMemory;
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
 
-@WebServlet("/vending_machine/main")
+@WebServlet("/vending/main")
 public class MainServlet extends HttpServlet {
 	
 	private ProductDao productDao = new ProductDaoImplInMemory();

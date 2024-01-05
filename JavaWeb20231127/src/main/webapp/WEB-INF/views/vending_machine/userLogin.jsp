@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 	</head>
 	<body style="padding: 15px">
-		<form action="${pageContext.request.contextPath}/vending_machine/main" method="post" class="pure-form">
+		<form action="${pageContext.request.contextPath}/vending/main" method="post" class="pure-form">
 			<fieldset>
 				<legend>User Login</legend>
 				🎅帳號: <input type="text" id="username" name="username" required placeholder="請輸入帳號"><p />
