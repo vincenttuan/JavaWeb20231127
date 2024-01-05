@@ -2,8 +2,9 @@ package vending_machine.entity;
 
 // 銷貨紀錄
 public class SalesItem {
+	private Integer id; // 銷貨 id
 	private Integer productId; // 商品 id
-	private String productName;
+	private String productName; // 商品名稱
 	private Integer totalPrice; // 銷售金額
 	private Integer totalAmount; // 銷售數量
 	// 該銷售紀錄是屬於哪一個使用者 
@@ -13,12 +14,21 @@ public class SalesItem {
 		
 	}
 	
-	public SalesItem(Integer productId, String productName, Integer totalPrice, Integer totalAmount, Integer userId) {
+	public SalesItem(Integer id, Integer productId, String productName, Integer totalPrice, Integer totalAmount, Integer userId) {
+		this.id = id;
 		this.productId = productId;
 		this.productName = productName;
 		this.totalPrice = totalPrice;
 		this.totalAmount = totalAmount;
 		this.userId = userId;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getProductId() {
@@ -56,10 +66,9 @@ public class SalesItem {
 
 	@Override
 	public String toString() {
-		return "SalesItem [productId=" + productId + ", productName=" + productName + ", totalPrice=" + totalPrice
-				+ ", totalAmount=" + totalAmount + ", userId=" + userId + "]";
+		return "SalesItem [id=" + id + ", productId=" + productId + ", productName=" + productName + ", totalPrice="
+				+ totalPrice + ", totalAmount=" + totalAmount + ", userId=" + userId + "]";
 	}
-	
 	
 	
 }
