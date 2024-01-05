@@ -62,6 +62,9 @@
 		</td>
 		<td>
 			<button type="submit" class="pure-button pure-button-primary">購買</button>
+			<button type="button"
+					onclick="./logout"
+					class="pure-button">登出</button>
 		</td>
 	</tr>
 	<tr>
