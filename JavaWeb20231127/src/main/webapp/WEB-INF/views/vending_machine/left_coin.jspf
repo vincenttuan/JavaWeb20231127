@@ -33,7 +33,7 @@
 	</tr>
 	<tr>
 		<td align="right">使用者</td>
-		<td>John</td>
+		<td>${ sessionScope.user.username }</td>
 	</tr>
 	<tr>
 		<td align="right">總金額</td>
