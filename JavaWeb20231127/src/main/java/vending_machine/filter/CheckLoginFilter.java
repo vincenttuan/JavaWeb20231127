@@ -37,12 +37,21 @@ public class CheckLoginFilter extends HttpFilter {
 			// 檢查是否有帶入 username 與 password
 			String username = req.getParameter("username");
 			String password = req.getParameter("password");
-			if(username == null || password == null) {
+			String code = req.getParameter("code");
+			if(username == null || password == null || code == null) {
 				// 重導到登入頁面 
 				rd.forward(req, res);
 				return;
 			}
 			// 進行登入檢查
+			// 檢查 code
+			if(!code.equals(session.getAttribute("code")+"")) { // code 不一致
+				// 重導到登入頁面 
+				rd.forward(req, res);
+				return;
+			}
+			
+			// 檢查 username
 			User user = dao.getUser(username);
 			if(user == null) { // 無此使用者 
 				// 重導到登入頁面 
@@ -50,6 +59,7 @@ public class CheckLoginFilter extends HttpFilter {
 				return;
 			}
 			
+			// 檢查 password
 			if(user.getPassword().equals(password)) { // 檢查密碼
 				session.setAttribute("user", user); // 將 user 物件寫入到 session 變數中存放 
 				
