@@ -40,8 +40,8 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into user(username, password, email) values(?, ?, ?)";
+		jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail());
 	}
 
 	@Override
