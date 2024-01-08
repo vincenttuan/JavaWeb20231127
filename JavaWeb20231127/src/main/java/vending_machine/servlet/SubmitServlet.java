@@ -66,9 +66,15 @@ public class SubmitServlet extends HttpServlet {
 		
 		// 將本次消費紀錄儲存到資料表
 		productDao.addSalesItem(currentSalesItems);
+		// 計算總數量
+		Integer sumAmount = currentSalesItems.stream().mapToInt(SalesItem::getTotalAmount).sum();
+		// 計算總金額
+		Integer sumPrice = currentSalesItems.stream().mapToInt(SalesItem::getTotalPrice).sum();
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/vending_machine/result.jsp");
 		req.setAttribute("currentSalesItems", currentSalesItems);
+		req.setAttribute("sumAmount", sumAmount);
+		req.setAttribute("sumPrice", sumPrice);
 		rd.forward(req, resp);
 		
 	}
