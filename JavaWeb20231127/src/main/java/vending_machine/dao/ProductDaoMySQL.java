@@ -87,7 +87,7 @@ private JdbcTemplate jdbcTemplate;
 	}
 
 	@Override
-	public void addSalesItem(SalesItem... salesItems) {
+	public void addSalesItem(List<SalesItem> salesItems) {
 		String sql = "insert into sales_item(product_id, product_name, total_amount, total_price, user_id) values (?, ?, ?, ?, ?)";
 		List<Object[]> batchArgs = new ArrayList<>();
 		for(SalesItem salesItem : salesItems) {

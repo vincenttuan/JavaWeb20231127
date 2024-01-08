@@ -17,6 +17,6 @@ public interface ProductDao {
 	Product getProductByImageName(String name);
 	Product getProductById(Integer id);
 	
-	void addSalesItem(SalesItem... salesItems);
+	void addSalesItem(List<SalesItem> salesItems);
 	List<SalesItem> findAllSalesItemsByUserId(Integer userId);
 }

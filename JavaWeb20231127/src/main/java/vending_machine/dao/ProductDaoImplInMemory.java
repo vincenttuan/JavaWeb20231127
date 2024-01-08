@@ -79,7 +79,7 @@ public class ProductDaoImplInMemory implements ProductDao {
 	}
 
 	@Override
-	public void addSalesItem(SalesItem... salesItems) {
+	public void addSalesItem(List<SalesItem> salesItems) {
 		// TODO Auto-generated method stub
 		
 	}
