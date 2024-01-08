@@ -64,6 +64,9 @@ public class SubmitServlet extends HttpServlet {
 			}
 		});
 		
+		// 將本次消費紀錄儲存到資料表
+		
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/vending_machine/result.jsp");
 		req.setAttribute("currentSalesItems", currentSalesItems);
 		rd.forward(req, resp);
