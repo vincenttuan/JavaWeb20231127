@@ -52,14 +52,16 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public List<Product> findAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, name, image_name, price, stock from product";
+		List<Product> products = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Product.class));
+		return products;
 	}
 
 	@Override
 	public List<SalesItem> findAllSalesItems() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, product_id, product_name, total_amount, total_price, user_id from sales_item";
+		List<SalesItem> salesItems = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(SalesItem.class));
+		return salesItems;
 	}
 
 	@Override
