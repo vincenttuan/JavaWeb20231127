@@ -46,8 +46,8 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public User getUser(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, username, password, email from user where username = ?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username);
 	}
 
 	@Override
