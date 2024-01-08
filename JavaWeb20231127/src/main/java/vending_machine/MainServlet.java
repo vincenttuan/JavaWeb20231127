@@ -13,13 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import vending_machine.dao.ProductDao;
 import vending_machine.dao.ProductDaoImplInMemory;
+import vending_machine.dao.ProductDaoMySQL;
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
 
 @WebServlet("/vending/main")
 public class MainServlet extends HttpServlet {
 	
-	private ProductDao productDao = new ProductDaoImplInMemory();
+	//private ProductDao productDao = new ProductDaoImplInMemory();
+	private ProductDao productDao = new ProductDaoMySQL();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
