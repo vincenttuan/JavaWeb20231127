@@ -1,5 +1,6 @@
 package vending_machine.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -87,8 +88,14 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public void addSalesItem(SalesItem... salesItems) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into sales_item(product_id, product_name, total_amount, total_price, user_id) values (?, ?, ?, ?, ?)";
+		List<Object[]> batchArgs = new ArrayList<>();
+		for(SalesItem salesItem : salesItems) {
+			Object[] batchArg = {salesItem.getProductId(), salesItem.getProductName(), 
+					salesItem.getTotalAmount(), salesItem.getTotalPrice(), salesItem.getUserId()};
+			batchArgs.add(batchArg);
+		}
+		jdbcTemplate.batchUpdate(sql, batchArgs);
 	}
 
 	@Override
