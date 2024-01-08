@@ -66,20 +66,23 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public Product getProductByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, name, image_name, price, stock from product where name = ?";
+		Product product = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Product.class), name);
+		return product;
 	}
 
 	@Override
-	public Product getProductByImageName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public Product getProductByImageName(String imageName) {
+		String sql = "select id, name, image_name, price, stock from product where image_name = ?";
+		Product product = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Product.class), imageName);
+		return product;
 	}
 
 	@Override
 	public Product getProductById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, name, image_name, price, stock from product where id = ?";
+		Product product = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Product.class), id);
+		return product;
 	}
 
 }
