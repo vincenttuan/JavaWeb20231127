@@ -18,4 +18,5 @@ public interface ProductDao {
 	Product getProductById(Integer id);
 	
 	void addSalesItem(SalesItem... salesItems);
+	List<SalesItem> findAllSalesItemsByUserId(Integer userId);
 }

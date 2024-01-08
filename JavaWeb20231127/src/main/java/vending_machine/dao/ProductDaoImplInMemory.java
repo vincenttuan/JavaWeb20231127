@@ -78,4 +78,16 @@ public class ProductDaoImplInMemory implements ProductDao {
 		return userOpt.isPresent() ? userOpt.get() : null;
 	}
 
+	@Override
+	public void addSalesItem(SalesItem... salesItems) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<SalesItem> findAllSalesItemsByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
