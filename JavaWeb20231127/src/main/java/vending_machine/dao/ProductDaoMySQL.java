@@ -91,8 +91,13 @@ private JdbcTemplate jdbcTemplate;
 		String sql = "insert into sales_item(product_id, product_name, total_amount, total_price, user_id) values (?, ?, ?, ?, ?)";
 		List<Object[]> batchArgs = new ArrayList<>();
 		for(SalesItem salesItem : salesItems) {
-			Object[] batchArg = {salesItem.getProductId(), salesItem.getProductName(), 
-					salesItem.getTotalAmount(), salesItem.getTotalPrice(), salesItem.getUserId()};
+			Object[] batchArg = {
+					salesItem.getProductId(), 
+					salesItem.getProductName(), 
+					salesItem.getTotalAmount(), 
+					salesItem.getTotalPrice(), 
+					salesItem.getUserId()
+			};
 			batchArgs.add(batchArg);
 		}
 		jdbcTemplate.batchUpdate(sql, batchArgs);
