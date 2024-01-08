@@ -65,7 +65,7 @@ public class CheckLoginFilter extends HttpFilter {
 			// 檢查 password
 			if(user.getPassword().equals(password)) { // 檢查密碼
 				session.setAttribute("user", user); // 將 user 物件寫入到 session 變數中存放 
-				
+				System.out.println(session.getAttribute("user"));
 			} else { // 密碼比對失敗
 				// 重導到登入頁面
 				req.setAttribute("msg", "密碼錯誤");
