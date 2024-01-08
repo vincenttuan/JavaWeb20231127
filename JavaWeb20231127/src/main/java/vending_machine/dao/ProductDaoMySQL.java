@@ -105,8 +105,9 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public List<SalesItem> findAllSalesItemsByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, product_id, product_name, total_amount, total_price, user_id from sales_item where user_id = ?";
+		List<SalesItem> salesItems = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(SalesItem.class), userId);
+		return salesItems;
 	}
 
 }
