@@ -34,8 +34,15 @@
 							</tr>
 						</c:forEach>
 					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3"></td>
+							<td>${ sumAmount }</td>
+							<td>${ sumPrice }</td>
+						</tr>
+					</tfoot>
 				</table>
-				
+				<p />
 				<a href="./main" class="pure-button pure-button-primary">回首頁</a>
 			</fieldset>
 			
