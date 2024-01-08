@@ -17,7 +17,6 @@
 					<thead>
 						<tr>
 							<th>序號</th>
-							<th>ID</th>
 							<th>商品序號</th>
 							<th>商品名稱</th>
 							<th>數量</th>
@@ -28,7 +27,6 @@
 						<c:forEach var="salesItem" items="${ currentSalesItems }" varStatus="status">
 							<tr>
 								<td>${ (status.index + 1) }</td>
-								<td>${ salesItem.id }</td>
 								<td>${ salesItem.productId }</td>
 								<td>${ salesItem.productName }</td>
 								<td>${ salesItem.totalAmount }</td>
