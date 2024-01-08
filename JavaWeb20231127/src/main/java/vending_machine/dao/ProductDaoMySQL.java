@@ -2,6 +2,7 @@ package vending_machine.dao;
 
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -32,8 +33,9 @@ private JdbcTemplate jdbcTemplate;
 	
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, username, password, email from user";
+		List<User> users = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
+		return users;
 	}
 
 	@Override
