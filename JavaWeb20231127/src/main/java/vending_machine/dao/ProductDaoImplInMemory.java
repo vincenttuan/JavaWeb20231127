@@ -14,10 +14,10 @@ public class ProductDaoImplInMemory implements ProductDao {
 	private static List<SalesItem> salesItems = new ArrayList<>();
 	
 	static {
-		// 使用者
-		users.add(new User(1, "john", "1234", "john@gmail.com"));
-		users.add(new User(2, "jack", "5678", "jack@gmail.com"));
-		users.add(new User(3, "rose", "1111", "rose@gmail.com"));
+		// 使用者(密碼都是 1234)
+		users.add(new User(1, "john", "CvYZAzr78PYhyTxDs2CJ91hhauo3+KUITuoK9ewWQ90=", "dkBTXgJMWWdcPcOwC2/icg==", "john@gmail.com"));
+		users.add(new User(2, "jack", "f4GwKKP/uMoYNkS3zO38rdqTF8psWW+ITIUcy+R/LaY=", "pIDHnorSH7B/VcPdSVmZyQ==", "jack@gmail.com"));
+		users.add(new User(3, "rose", "LKaCzacdQIni+M+99r2EgqiD7TLiPCvacrm2dGhMh7U=", "injLTEco9KdKXgfD7QwncQ==", "rose@gmail.com"));
 		
 		// 進貨
 		products.add(new Product(1, "台灣啤酒", "beer", 50, 5));
