@@ -42,6 +42,16 @@ public class SecurityUtils {
 		System.out.println("salt: " + salt);
 		String hashedPassword = getHashPassword("1234", salt);
 		System.out.println("hashedPassword: " + hashedPassword);
+		// 產生預設 user 資料表的資訊
+		String[][] users = {
+				{"john", "1234", "john@gmail.com"},
+				{"jack", "5678", "jack@gmail.com"},
+				{"rose", "1111", "rose@gmail.com"}
+		};
+		// 生成有 hash + salt 的 sql
+		for(String[] user : users) {
+			
+		}
 		
 	}
 	
