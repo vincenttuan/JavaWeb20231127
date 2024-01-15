@@ -30,7 +30,6 @@ public class CheckLoginFilter extends HttpFilter {
 		
 		// 重導到登入頁面的位置
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/vending_machine/userLogin.jsp");
-		System.out.println("A");
 		// 1. 先檢查 session 變數中是否有 user 物件資料
 		HttpSession session = req.getSession();
 		if(session.getAttribute("user") == null) { // session 變數中沒有 user 資料
@@ -38,7 +37,6 @@ public class CheckLoginFilter extends HttpFilter {
 			String username = req.getParameter("username");
 			String password = req.getParameter("password");
 			String code = req.getParameter("code");
-			System.out.println("B");
 			if(username == null || password == null || code == null) {
 				// 重導到登入頁面
 				req.setAttribute("msg", "請輸入登入資訊");
@@ -46,7 +44,6 @@ public class CheckLoginFilter extends HttpFilter {
 				return;
 			}
 			// 進行登入檢查
-			System.out.println("C");
 			// 檢查 code
 			if(!code.equals(session.getAttribute("code")+"")) { // code 不一致
 				// 重導到登入頁面
