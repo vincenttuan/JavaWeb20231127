@@ -11,10 +11,11 @@ public class User {
 		
 	}
 	
-	public User(Integer id, String username, String password, String email) {
+	public User(Integer id, String username, String password, String salt, String email) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.salt = salt;
 		this.email = email;
 	}
 
