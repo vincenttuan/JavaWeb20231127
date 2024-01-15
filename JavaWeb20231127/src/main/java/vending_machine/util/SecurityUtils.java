@@ -45,8 +45,8 @@ public class SecurityUtils {
 		// 產生預設 user 資料表的資訊
 		String[][] users = {
 				{"john", "1234", "john@gmail.com"},
-				{"jack", "5678", "jack@gmail.com"},
-				{"rose", "1111", "rose@gmail.com"}
+				{"jack", "1234", "jack@gmail.com"},
+				{"rose", "1234", "rose@gmail.com"}
 		};
 		// 生成有 hash + salt 的 sql
 		for(String[] user : users) {
@@ -54,7 +54,7 @@ public class SecurityUtils {
 			String password = user[1];
 			String email = user[2];
 			String userSalt = generateSalt();
-			String userHashedPassword = getHashPassword(password, salt);
+			String userHashedPassword = getHashPassword(password, userSalt);
 			String sql = "insert into user(username, password, salt, email values('%s', '%s', '%s', '%s')";
 			System.out.printf(sql+"%n", username, userHashedPassword, userSalt, email);
 		}
