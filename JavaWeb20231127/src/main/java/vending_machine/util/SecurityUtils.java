@@ -50,7 +50,13 @@ public class SecurityUtils {
 		};
 		// 生成有 hash + salt 的 sql
 		for(String[] user : users) {
-			
+			String username = user[0];
+			String password = user[1];
+			String email = user[2];
+			String userSalt = generateSalt();
+			String userHashedPassword = getHashPassword(password, salt);
+			String sql = "insert into user(username, password, salt, email values('%s', '%s', '%s', '%s')";
+			System.out.printf(sql, username, userHashedPassword, userSalt, email);
 		}
 		
 	}
