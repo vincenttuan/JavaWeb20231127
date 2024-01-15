@@ -34,20 +34,20 @@ private JdbcTemplate jdbcTemplate;
 	
 	@Override
 	public List<User> findAllUsers() {
-		String sql = "select id, username, password, email from user";
+		String sql = "select id, username, password, salt, email from user";
 		List<User> users = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
 		return users;
 	}
 
 	@Override
 	public void addUser(User user) {
-		String sql = "insert into user(username, password, email) values(?, ?, ?)";
-		jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail());
+		String sql = "insert into user(username, password, salt, email) values(?, ?, ?, ?)";
+		jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getSalt(), user.getEmail());
 	}
 
 	@Override
 	public User getUser(String username) {
-		String sql = "select id, username, password, email from user where username = ?";
+		String sql = "select id, username, password, salt, email from user where username = ?";
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username);
 	}
 
