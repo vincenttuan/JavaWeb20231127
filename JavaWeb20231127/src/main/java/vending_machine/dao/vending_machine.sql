@@ -11,6 +11,9 @@ create table if not exists user(
     email varchar(50)
 );
 
+-- 修改資料庫結構：增加一個欄位來存儲鹽（Salt）值。
+ALTER TABLE user ADD COLUMN salt VARCHAR(255);
+
 -- 建立 product table
 create table if not exists product(
 	id int primary key auto_increment,
