@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import vending_machine.dao.ProductDao;
 import vending_machine.dao.ProductDaoImplInMemory;
 import vending_machine.entity.User;
+import vending_machine.util.SecurityUtils;
 
 //@WebFilter(value = {"/vending/main", "/vending/submit"})
 //@WebFilter(value = {"/vending/*"})
@@ -62,7 +63,11 @@ public class CheckLoginFilter extends HttpFilter {
 			}
 			
 			// 檢查 password
-			if(user.getPassword().equals(password)) { // 檢查密碼
+			// 取得 user 在資料庫中的 password(HashedPassword)
+			String hashedPasswordInDB = user.getPassword();
+			String salt = user.getSalt(); // 取鹽
+			String loginHashedPassword = SecurityUtils.getHashPassword(password, salt);
+			if(hashedPasswordInDB.equals(loginHashedPassword)) { // 檢查密碼
 				session.setAttribute("user", user); // 將 user 物件寫入到 session 變數中存放 
 				System.out.println(session.getAttribute("user"));
 			} else { // 密碼比對失敗
