@@ -22,7 +22,7 @@ public class SecurityUtils {
 	}
 	
 	// 生成哈希
-	public static String hashPassword(String password, String salt) {
+	public static String getHashPassword(String password, String salt) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
 			md.update((salt + password).getBytes()); // 鹽 + password(明碼)
@@ -38,7 +38,11 @@ public class SecurityUtils {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("salt: " + generateSalt());
+		String salt = generateSalt();
+		System.out.println("salt: " + salt);
+		String hashedPassword = getHashPassword("1234", salt);
+		System.out.println("hashedPassword: " + hashedPassword);
+		
 	}
 	
 }
