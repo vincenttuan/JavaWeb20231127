@@ -55,7 +55,7 @@ public class SecurityUtils {
 			String email = user[2];
 			String userSalt = generateSalt();
 			String userHashedPassword = getHashPassword(password, userSalt);
-			String sql = "insert into user(username, password, salt, email) values('%s', '%s', '%s', '%s')";
+			String sql = "insert into user(username, password, salt, email) values('%s', '%s', '%s', '%s');";
 			System.out.printf(sql+"%n", username, userHashedPassword, userSalt, email);
 		}
 		
