@@ -50,9 +50,13 @@
 				<td valign="top">
 					<%@ include file="left_coin.jspf" %>
 				</td>
-				<!-- 右邊商品區 -->
+				<!-- 中間商品區 -->
 				<td valign="top">
 					<%@ include file="right_product.jspf" %>
+				</td>
+				<!-- 右邊銷貨歷史商品區 -->
+				<td valign="top">
+					${ salesItemList }
 				</td>
 			</tr>
 		</table>
