@@ -3,6 +3,7 @@ package vending_machine;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,6 +45,8 @@ public class MainServlet extends HttpServlet {
 		User user = (User)session.getAttribute("user"); // 取得使用者的登入資訊
 		List<SalesItem> salesItemList = productDao.findAllSalesItemsByUserId(user.getId()); // 查詢該登入者所有的銷貨資料
 		
+		List<Map<String, Object>> groupBySalesItemList = productDao.groupBySalesItemByUserId(user.getId()); //  彙整銷售資料
+		
 		// deepClone
 		List<Product> cloneProducts = new ArrayList<>();
 		products.forEach(product -> {
@@ -62,6 +65,7 @@ public class MainServlet extends HttpServlet {
 		
 		req.setAttribute("products", cloneProducts);
 		req.setAttribute("salesItemList", salesItemList);
+		req.setAttribute("groupBySalesItemList", groupBySalesItemList);
 		rd.forward(req, resp);
 	}
 	
