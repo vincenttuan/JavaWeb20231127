@@ -28,7 +28,7 @@
 		</c:forEach>
 	</tbody>
 	<tfoot>
-		<tr>
+		<tr style="border-top: 1px solid #cccccc;" bgcolor="#dddddd">
 			<td colspan="3" align="right">總計</td>
 			<td align="right">${ totalSum }</td>
 			<td></td>
