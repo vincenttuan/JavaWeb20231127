@@ -28,7 +28,7 @@
 			p: 分頁控制元素（Pagination）。
 			因此，dom:'Bfrtip' 表示 DataTables 中的控制元素和按鈕會包括按鈕、搜索框、每頁顯示的記錄數、表格、信息元素和分頁控制元素。
 			*/
-			dom: 'Bfrtip',
+			dom: 'fBrtip',
 			buttons: ['excel', 'print'], // 'copy', 'csv', 'excel', 'pdf', 'print'
 			// 設定語言
 			"language": {
