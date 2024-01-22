@@ -10,12 +10,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import vending_machine.dao.ProductDao;
 import vending_machine.dao.ProductDaoImplInMemory;
 import vending_machine.dao.ProductDaoMySQL;
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
+import vending_machine.entity.User;
 
 @WebServlet("/vending/main")
 public class MainServlet extends HttpServlet {
@@ -38,6 +40,10 @@ public class MainServlet extends HttpServlet {
 		List<Product> products = productDao.findAllProducts(); // 所有的進貨資料
 		List<SalesItem> salesItems = productDao.findAllSalesItems(); // 所有的銷貨資料
 		
+		HttpSession session = req.getSession();
+		User user = (User)session.getAttribute("user"); // 取得使用者的登入資訊
+		List<SalesItem> salesItemList = productDao.findAllSalesItemsByUserId(user.getId()); // 查詢該登入者所有的銷貨資料
+		
 		// deepClone
 		List<Product> cloneProducts = new ArrayList<>();
 		products.forEach(product -> {
@@ -55,6 +61,7 @@ public class MainServlet extends HttpServlet {
 		}
 		
 		req.setAttribute("products", cloneProducts);
+		req.setAttribute("salesItemList", salesItemList);
 		rd.forward(req, resp);
 	}
 	
