@@ -36,3 +36,10 @@
 		</tr>
 	</tfoot>
 </table>
+
+<!-- 彙整銷售資料 -->
+<table>
+	<td>
+		${ groupBySalesItemList }
+	</td>
+</table>
