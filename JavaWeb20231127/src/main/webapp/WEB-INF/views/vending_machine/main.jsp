@@ -56,7 +56,7 @@
 				</td>
 				<!-- 右邊銷貨歷史商品區 -->
 				<td valign="top">
-					${ salesItemList }
+					<%@ include file="salesitem_list.jspf" %>
 				</td>
 			</tr>
 		</table>
