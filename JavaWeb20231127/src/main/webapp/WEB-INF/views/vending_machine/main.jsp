@@ -19,9 +19,16 @@
 	            text-align: center;
 	        }
 		</style>
+		
+		<script>
+			function checkSubmit() {
+				
+			}
+		</script>
+		
 	</head>
 	<body style="padding: 15px">
-		<form method="post" onsubmit="return true;" action="${pageContext.request.contextPath}/vending/submit">
+		<form method="post" onsubmit="return checkSubmit();" action="${pageContext.request.contextPath}/vending/submit">
 		<table>
 			<tr>
 				<!-- 左邊投幣區 -->
