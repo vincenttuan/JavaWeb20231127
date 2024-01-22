@@ -15,14 +15,23 @@
 		</tr>
 	</thead>
 	<tbody>
+		<c:set var="totalSum" value="0" /> <!-- 初始化累計變數 -->
 		<c:forEach var="salesItem" items="${ salesItemList }">
-		<tr>
-			<td>${ salesItem.id }</td>
-			<td>${ salesItem.productId }</td>
-			<td>${ salesItem.productName }</td>
-			<td align="right">${ salesItem.totalPrice }</td>
-			<td align="right">${ salesItem.totalAmount }</td>
-		</tr>
+			<tr>
+				<td>${ salesItem.id }</td>
+				<td>${ salesItem.productId }</td>
+				<td>${ salesItem.productName }</td>
+				<td align="right">${ salesItem.totalPrice }</td>
+				<td align="right">${ salesItem.totalAmount }</td>
+			</tr>
+			<c:set var="totalSum" value="${ totalSum + salesItem.totalPrice }"></c:set> <!-- 累計總價 -->
 		</c:forEach>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" align="right">總計</td>
+			<td align="right">${ totalSum }</td>
+			<td></td>
+		</tr>
+	</tfoot>
 </table>
