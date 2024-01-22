@@ -22,7 +22,22 @@
 		
 		<script>
 			function checkSubmit() {
-				
+				var totalPrice = document.getElementById('total_price').value;
+				var coinAmount = document.getElementById('coin_amount').value;
+				if(totalPrice == 0) {
+					alert('尚未購買任何商品');
+					return false;
+				}
+				if(coinAmount == 0) {
+					alert('尚未投幣');
+					return false;
+				}
+				if(coinAmount < totalPrice) {
+					var diff = totalPrice - coinAmount;
+					alert('投幣不足 ' + diff + ' 元');
+					return false;
+				}
+				return true;
 			}
 		</script>
 		
