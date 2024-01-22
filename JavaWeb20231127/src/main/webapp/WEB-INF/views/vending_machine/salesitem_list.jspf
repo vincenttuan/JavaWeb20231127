@@ -19,6 +19,15 @@
 	$(document).ready(function() {
 		$('#salesItemTable').DataTable({
 			// 功能鍵
+			/*
+			B: 按鈕元素（Buttons）。
+			f: 搜索框（Filter）。
+			r: 每頁顯示的記錄數（length changing input）。
+			t: 表格（Table）。
+			i: 信息元素（Information）。
+			p: 分頁控制元素（Pagination）。
+			因此，dom:'Bfrtip' 表示 DataTables 中的控制元素和按鈕會包括按鈕、搜索框、每頁顯示的記錄數、表格、信息元素和分頁控制元素。
+			*/
 			dom: 'Bfrtip',
 			buttons: ['excel', 'print'],
 			// 設定語言
