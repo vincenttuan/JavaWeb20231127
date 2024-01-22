@@ -22,8 +22,8 @@
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script>
 			function checkSubmit() {
-				var totalPrice = document.getElementById('total_price').value;
-				var coinAmount = document.getElementById('coin_amount').value;
+				var totalPrice = parseInt(document.getElementById('total_price').value);
+				var coinAmount = parseInt(document.getElementById('coin_amount').value);
 				if(totalPrice == 0) {
 					swal('錯誤', '尚未購買任何商品', 'error');
 					return false;
