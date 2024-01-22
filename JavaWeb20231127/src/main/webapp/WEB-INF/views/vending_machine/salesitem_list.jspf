@@ -4,7 +4,7 @@
 <table id="salesItemTable" class="pure-table pure-table-bordered">
 	<thead>
 		<tr>
-			<th colspan="5" align="center" style="border-bottom: 1px solid #cccccc;">${ user.username } 的歷史交易紀錄</th>
+			<th colspan="6" align="center" style="border-bottom: 1px solid #cccccc;">${ user.username } 的歷史交易紀錄</th>
 		</tr>
 		<tr>
 			<th>銷貨 id</th>
