@@ -26,7 +26,7 @@
 				<td align="right">${ salesItem.totalAmount }</td>
 				<td align="right">${ salesItem.totalPrice * salesItem.totalAmount }</td>
 			</tr>
-			<c:set var="totalSum" value="${ totalSum + salesItem.totalPrice }"></c:set> <!-- 累計總價 -->
+			<c:set var="totalSum" value="${ totalSum + (salesItem.totalPrice * salesItem.totalAmount) }"></c:set> <!-- 累計總價 -->
 		</c:forEach>
 	</tbody>
 	<tfoot>
