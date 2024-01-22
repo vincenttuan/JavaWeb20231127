@@ -1,6 +1,7 @@
 package vending_machine.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import vending_machine.entity.Product;
 import vending_machine.entity.SalesItem;
@@ -19,4 +20,5 @@ public interface ProductDao {
 	
 	void addSalesItem(List<SalesItem> salesItems);
 	List<SalesItem> findAllSalesItemsByUserId(Integer userId);
+	Map<String, Object> groupBySalesItemByUserId(Integer userId);
 }
