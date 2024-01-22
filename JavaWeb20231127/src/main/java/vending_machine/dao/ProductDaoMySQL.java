@@ -2,6 +2,7 @@ package vending_machine.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -108,6 +109,17 @@ private JdbcTemplate jdbcTemplate;
 		String sql = "select id, product_id, product_name, total_amount, total_price, user_id from sales_item where user_id = ?";
 		List<SalesItem> salesItems = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(SalesItem.class), userId);
 		return salesItems;
+	}
+
+	@Override
+	public List<Map<String, Object>> groupBySalesItemByUserId(Integer userId) {
+		String sql = "SELECT "
+				+ "	p.name, SUM(s.total_amount) as total_amount "
+				+ " FROM "
+				+ "	sales_item s, product p "
+				+ " WHERE user_id = ? AND s.product_name = p.image_name "
+				+ " group by p.name";
+		return jdbcTemplate.queryForList(sql, userId);
 	}
 
 }

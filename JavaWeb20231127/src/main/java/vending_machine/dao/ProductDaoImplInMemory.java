@@ -2,6 +2,7 @@ package vending_machine.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import vending_machine.entity.Product;
@@ -86,6 +87,12 @@ public class ProductDaoImplInMemory implements ProductDao {
 
 	@Override
 	public List<SalesItem> findAllSalesItemsByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Map<String, Object>> groupBySalesItemByUserId(Integer userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

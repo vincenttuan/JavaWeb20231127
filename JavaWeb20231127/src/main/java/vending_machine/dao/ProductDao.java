@@ -20,5 +20,5 @@ public interface ProductDao {
 	
 	void addSalesItem(List<SalesItem> salesItems);
 	List<SalesItem> findAllSalesItemsByUserId(Integer userId);
-	Map<String, Integer> groupBySalesItemByUserId(Integer userId);
+	List<Map<String, Object>> groupBySalesItemByUserId(Integer userId);
 }
