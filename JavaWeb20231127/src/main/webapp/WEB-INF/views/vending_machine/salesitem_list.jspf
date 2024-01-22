@@ -9,9 +9,10 @@
 		<tr>
 			<th>銷貨 id</th>
 			<th>商品 id</th>
-			<th>商品名稱</th>
-			<th>銷售金額</th>
-			<th>銷售數量</th>
+			<th>名稱</th>
+			<th>單價</th>
+			<th>數量</th>
+			<th>小計</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,15 +24,15 @@
 				<td>${ salesItem.productName }</td>
 				<td align="right">${ salesItem.totalPrice }</td>
 				<td align="right">${ salesItem.totalAmount }</td>
+				<td align="right">${ salesItem.totalPrice * salesItem.totalAmount }</td>
 			</tr>
 			<c:set var="totalSum" value="${ totalSum + salesItem.totalPrice }"></c:set> <!-- 累計總價 -->
 		</c:forEach>
 	</tbody>
 	<tfoot>
 		<tr style="border-top: 1px solid #cccccc;" bgcolor="#dddddd">
-			<td colspan="3" align="right">總計</td>
+			<td colspan="5" align="right">總計</td>
 			<td align="right">${ totalSum }</td>
-			<td></td>
 		</tr>
 	</tfoot>
 </table>
