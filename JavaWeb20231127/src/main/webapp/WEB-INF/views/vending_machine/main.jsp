@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 		<title>自動販賣機</title>
+		<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/demo.css">
 		<style type="text/css">
 			.circle30 {
