@@ -22,13 +22,47 @@
 		var coinAmountValue = parseInt(coinAmountInput.value);
 		var giveChangeValue = coinAmountValue - totalPriceValue;
 		giveChangeInput.value = giveChangeValue; 
+		// QRCode
+		generateQRcode();
 	}
+	
+	function generateQRcode() {
+	  // 獲取用戶名和總金額
+	  var username = '${sessionScope.user.username}'; // 這裡假設您在JSP頁面上，可以直接這樣使用
+	  var totalAmount = document.getElementById('total_price').value;
+
+	  // 獲取qrcode元素並清空之前的內容
+	  var qrcodeElement = document.getElementById("qrcode");
+	  qrcodeElement.innerHTML = ""; // 清空之前的QR碼
+
+	  // 創建QR碼的URL
+	  var qrUrl = 'http://localhost:8080/VendingMachine/vending/payment?name=' + encodeURIComponent(username) + '&amount=' + encodeURIComponent(totalAmount);
+
+	  // 生成新的QR碼並將其放入<div id="qrcode"></div>
+	  var qrcode = new QRCode(qrcodeElement, {
+	    text: qrUrl,
+	    width: 100,
+	    height: 100
+	  });
+	}
+
 	
 </script>
 <table class="pure-table">
 	<tr>
-		<td colspan="2">
-			<img src="${pageContext.request.contextPath}/image/vending_machine.png">
+		<td colspan="2" nowrap>
+			<table border="0">
+				<td valign="top" style="border-left: none;">
+					<img src="${pageContext.request.contextPath}/image/vending_machine.png">
+				</td>
+				<td valign="middle" align="center">
+					<div id="nfc">
+						<img style="width: 200px" src="${pageContext.request.contextPath}/image/nfc.jpg">
+					</div>
+					<p>
+					<div id="qrcode"></div>
+				</td>
+			</table>
 		</td>
 	</tr>
 	<tr>
