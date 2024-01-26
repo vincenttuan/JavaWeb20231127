@@ -77,10 +77,16 @@
 						isConnectSuccess = true;
 						loginBtn.disabled = true;
 						userNameInput.disabled = true;
-						
+						// 當連線成功的時候發送打招呼訊息
+						var messageInfo = userNameInput.value + "說: 大家好";
+						webSocket.send(messageInfo);
 					};
 					
 					// onMessage
+					webSocket.onmessage = function(event) {
+						var message = event.data;
+						messageDisplay.innerHTML += message + "<br>"; // 在網頁中顯示收到的訊息
+					};
 					
 					// onClose
 					webSocket.onclose = function(event) {
@@ -93,8 +99,12 @@
 						userNameInput.disabled = false;
 					};
 					
-					
 					// onError
+					webSocket.onerror = function(event) {
+						loginBtn.disabled = false;
+						userNameInput.disabled = false;
+						infoWindow.innerHTML = '連線失敗';
+					};
 				}
 				
             }
