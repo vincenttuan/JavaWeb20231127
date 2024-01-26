@@ -16,14 +16,23 @@ public class WebSocketServer {
 	
 	@OnOpen
 	public void onOpen(Session session) {
-		
+		System.out.println("有 Client 連入");
+		sessions.add(session); // 加入到容器
+		System.out.println("目前連線數量: " + sessions.size());
+		System.out.println("目前連線的 session id: " + session.getId());
 	}
 	
 	// session: 傳送者(訊息來源)
 	// message: 訊息內容
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
-		
+		System.out.printf("session id: %s 發送: %s%n", session.getId(), message);
+		// 將訊息廣播給大家
+		sessions.forEach(s -> { // s 指的就是每一個 session
+			if(s.isOpen()) {
+				s.getAsyncRemote().sendText(message);
+			}
+		});
 	}
 	
 	@OnClose
