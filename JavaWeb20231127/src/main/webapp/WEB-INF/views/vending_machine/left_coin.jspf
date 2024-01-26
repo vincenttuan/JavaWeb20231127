@@ -41,7 +41,8 @@
 	  // 取得表單資訊
 	  var formElement = document.getElementById('myform');
 	  var formData = new FormData(formElement);
-	  var json = JSON.stringify(formData); // 將任意物件轉 json 字串
+	  var formJson = Object.fromEntries(forData.entries);
+	  var json = JSON.stringify(formJson); // 將任意物件轉 json 字串
 	  var qrUrl = json;
 
 	  // 生成新的QR碼並將其放入<div id="qrcode"></div>
