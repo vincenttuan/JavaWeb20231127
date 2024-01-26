@@ -26,8 +26,19 @@
                 // 宣告 websocket
                 var webSocket;
                 // 是否連線成功(預設 = false, 尚未連線)
-                var isConnectSeccess = false;
+                var isConnectSuccess = false;
                 
+                // 設置登入按鈕的動作
+                loginBtn.addEventListener('click', function() {
+					// 檢查是否有無輸入名稱
+					if(userNameInput.value !== "") {
+						setWebSocket(); // 設置 WebSocket 連線
+					} else {
+						infoWindow.innerHTML = '請輸入使用者名稱';
+					}
+				});
+				
+				
             }
         </script>
     </head>
