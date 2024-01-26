@@ -27,10 +27,11 @@ public class WebSocketServer {
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
 		System.out.printf("session id: %s 發送: %s%n", session.getId(), message);
+		String json = String.format("{\"message\": \"%s\", \"count\": %d}", message, sessions.size());
 		// 將訊息廣播給大家
 		sessions.forEach(s -> { // s 指的就是每一個 session
 			if(s.isOpen()) { // 確認客戶端是否仍有連線
-				s.getAsyncRemote().sendText(message); // 將訊息傳給每一個客戶端
+				s.getAsyncRemote().sendText(json); // 將訊息傳給每一個客戶端
 			}
 		});
 	}
