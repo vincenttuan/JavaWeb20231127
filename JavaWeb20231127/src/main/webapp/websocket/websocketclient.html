@@ -84,8 +84,9 @@
 					
 					// onMessage
 					webSocket.onmessage = function(event) {
-						var message = event.data;
-						messageDisplay.innerHTML += message + "<br>"; // 在網頁中顯示收到的訊息
+						var json = JSON.parse(event.data);
+						messageDisplay.innerHTML += json.message + "<br>"; // 在網頁中顯示收到的訊息
+						count.innerText = json.count; // 在網頁中顯示在線人數 
 					};
 					
 					// onClose
