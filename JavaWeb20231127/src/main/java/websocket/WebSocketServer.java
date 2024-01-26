@@ -29,8 +29,8 @@ public class WebSocketServer {
 		System.out.printf("session id: %s 發送: %s%n", session.getId(), message);
 		// 將訊息廣播給大家
 		sessions.forEach(s -> { // s 指的就是每一個 session
-			if(s.isOpen()) {
-				s.getAsyncRemote().sendText(message);
+			if(s.isOpen()) { // 確認客戶端是否仍有連線
+				s.getAsyncRemote().sendText(message); // 將訊息傳給每一個客戶端
 			}
 		});
 	}
