@@ -51,6 +51,18 @@
 					return false; // 讓表單不重複送出
 				});
 				
+				// 傳送訊息到 ws
+				function sendMessage() {
+					// 檢查 webSocket 的連線狀態
+					if(webSocket && isConnectSuccess) {
+						var messageInfo = userNameInput.value + "說: " + userinput.value;
+						webSocket.send(messageInfo);
+					} else {
+						infoWindow.innerHTML = '未登入';
+					}
+				}
+				
+				
 				
             }
         </script>
