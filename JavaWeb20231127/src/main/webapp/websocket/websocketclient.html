@@ -38,6 +38,19 @@
 					}
 				});
 				
+				// 手動關閉 WebSocket
+				closeBtn.addEventListener('click', function() {
+					if(webSocket != null) {
+						webSocket.close();
+					}
+				});
+				
+				// 傳送訊息
+				chatRoomForm.addEventListener('submit', function() {
+					sendMessage();
+					return false; // 讓表單不重複送出
+				});
+				
 				
             }
         </script>
