@@ -37,12 +37,14 @@ public class WebSocketServer {
 	
 	@OnClose
 	public void onClose(Session session) {
-		
+		System.out.printf("session id: %s 離開了%n", session.getId());
+		sessions.remove(session);
+		System.out.println("目前連線數量: " + sessions.size());
 	}
 	
 	@OnError
 	public void onError(Session session, Throwable throwable) {
-		
+		System.out.printf("session id: %s 發生錯誤: %s%n", session.getId(), throwable.getMessage());
 	}
 	
 }
