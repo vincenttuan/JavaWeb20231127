@@ -41,6 +41,15 @@ public class WebSocketServer {
 		System.out.printf("session id: %s 離開了%n", session.getId());
 		sessions.remove(session);
 		System.out.println("目前連線數量: " + sessions.size());
+		
+		String json = String.format("{\"message\": \"%s 離開了\", \"count\": %d}", session.getId(), sessions.size());
+		// 將訊息廣播給大家
+		sessions.forEach(s -> { // s 指的就是每一個 session
+			if(s.isOpen()) { // 確認客戶端是否仍有連線
+				s.getAsyncRemote().sendText(json); // 將訊息傳給每一個客戶端
+			}
+		});
+		
 	}
 	
 	@OnError
