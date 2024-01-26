@@ -41,16 +41,16 @@
 	  // 取得表單資訊
 	  var formElement = document.getElementById('myform');
 	  var formData = new FormData(formElement); // 取得表單資料容器
-	  const formDataEntries = Array.from(formData.entries());
-	  const formJson = Object.fromEntries(formDataEntries);
+	  var formDataEntries = Array.from(formData.entries());
+	  var formJson = Object.fromEntries(formDataEntries);
 	  var json = JSON.stringify(formJson); // 將任意物件轉 json 字串
 	  var qrUrl = json;
 
 	  // 生成新的QR碼並將其放入<div id="qrcode"></div>
 	  var qrcode = new QRCode(qrcodeElement, {
 	    text: qrUrl,
-	    width: 100,
-	    height: 100
+	    width: 200,
+	    height: 200
 	  });
 	}
 
