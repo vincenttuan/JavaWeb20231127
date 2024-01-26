@@ -62,7 +62,40 @@
 					}
 				}
 				
-				
+				// 設定 WebSocket
+				function setWebSocket() {
+					infoWindow.innerHTML = '準備連線...';
+					//var url = 'ws://localhost:8080/JavaWeb20231127/websocket/server';
+					var url = 'wss://localhost:8443/JavaWeb20231127/websocket/server';
+					infoURL.innerText = url;
+					// 開啟 WebSocket 連線
+					webSocket = new WebSocket(url);
+					
+					// onOpen
+					webSocket.onopen = function() {
+						infoWindow.innerHTML = "連線成功";
+						isConnectSuccess = true;
+						loginBtn.disabled = true;
+						userNameInput.disabled = true;
+						
+					};
+					
+					// onMessage
+					
+					// onClose
+					webSocket.onclose = function(event) {
+						if(event.wasClean) {
+							infoWindow.innerHTML = "連線已經關閉";
+						} else {
+							infoWindow.innerHTML = "連線意外中斷";
+						}
+						loginBtn.disabled = false;
+						userNameInput.disabled = false;
+					};
+					
+					
+					// onError
+				}
 				
             }
         </script>
