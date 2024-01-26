@@ -36,7 +36,7 @@
 	  qrcodeElement.innerHTML = ""; // 清空之前的QR碼
 
 	  // 創建QR碼的URL
-	  var qrUrl = 'http://localhost:8080/VendingMachine/vending/payment?name=' + encodeURIComponent(username) + '&amount=' + encodeURIComponent(totalAmount);
+	  var qrUrl = 'name=' + encodeURIComponent(username) + ',amount=' + encodeURIComponent(totalAmount);
 
 	  // 生成新的QR碼並將其放入<div id="qrcode"></div>
 	  var qrcode = new QRCode(qrcodeElement, {
