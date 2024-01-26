@@ -41,7 +41,8 @@
 	  // 取得表單資訊
 	  var formElement = document.getElementById('myform');
 	  var formData = new FormData(formElement); // 取得表單資料容器
-	  var formJson = Object.fromEntries(forData.entries); // 收集表單每一個欄位資訊 
+	  const formDataEntries = Array.from(formData.entries());
+	  const formJson = Object.fromEntries(formDataEntries);
 	  var json = JSON.stringify(formJson); // 將任意物件轉 json 字串
 	  var qrUrl = json;
 
