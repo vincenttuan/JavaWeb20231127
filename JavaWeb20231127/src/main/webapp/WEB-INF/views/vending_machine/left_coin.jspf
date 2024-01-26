@@ -36,7 +36,13 @@
 	  qrcodeElement.innerHTML = ""; // 清空之前的QR碼
 
 	  // 創建QR碼的URL
-	  var qrUrl = 'name=' + encodeURIComponent(username) + ',amount=' + encodeURIComponent(totalAmount);
+	  //var qrUrl = 'name=' + encodeURIComponent(username) + ',amount=' + encodeURIComponent(totalAmount);
+	  
+	  // 取得表單資訊
+	  var formElement = document.getElementById('myform');
+	  var formData = new FormData(formElement);
+	  var json = JSON.stringify(formData); // 將任意物件轉 json 字串
+	  var qrUrl = json;
 
 	  // 生成新的QR碼並將其放入<div id="qrcode"></div>
 	  var qrcode = new QRCode(qrcodeElement, {
